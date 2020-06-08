@@ -13,8 +13,9 @@ public abstract class Projectile : Physical{
   public ObjectName onHitEffect;
   protected abstract void OnHit(Hitpoint hitpoint);
   void OnTriggerEnter(Collider other){
-    center.pool.Spawn(onHitEffect, transform.position);
-    OnHit(other.GetComponent<Hitpoint>());
+    Hitpoint hitpoint = other.GetComponent<Hitpoint>();
+    center.pool.Spawn(onHitEffect, transform.position, Quaternion.Euler(new Vector3(0f,0f, hitpoint.shield? 180f:0f)));
+    OnHit(hitpoint);
     Die();
   }
 

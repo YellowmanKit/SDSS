@@ -20,7 +20,7 @@ public class Pool : Control{
     }
   }
 
-  public GameObject Spawn(ObjectName objectName, Vector3 position){
+  public GameObject Spawn(ObjectName objectName, Vector3 position, Quaternion rotation){
     for(int i=0;i<transform.childCount;i++){
       GameObject child = transform.GetChild(i).gameObject;
       if(child.name.Equals(objectName.ToString()) && !child.activeSelf){
@@ -29,10 +29,14 @@ public class Pool : Control{
         return child;
       }
     }
-    GameObject newChild = Instantiate(objectDictionary[objectName], position, objectDictionary[objectName].transform.rotation);
+    GameObject newChild = Instantiate(objectDictionary[objectName], position, rotation);
     newChild.transform.parent = transform;
     newChild.name = objectName.ToString();
     return newChild;
+  }
+
+  public GameObject Spawn(ObjectName objectName, Vector3 position){
+    return Spawn(objectName, position, objectDictionary[objectName].transform.rotation);
   }
 
 }

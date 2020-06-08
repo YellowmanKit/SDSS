@@ -12,7 +12,7 @@ public class Center : Control{
     player = GameObject.FindWithTag("Player").GetComponent<Player>();
   }
 
-  bool IsInFront(float x1, float x2){ return Mathf.Abs(x1 - x2) < 3f; }
+  bool IsInFront(float x1, float x2){ return Mathf.Abs(x1 - x2) < 5f; }
   public bool HasEnemyInFront(float x){
     foreach(Alien alien in aliens){
       if(IsInFront(x, alien.transform.position.x)){ return true; }

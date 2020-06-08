@@ -5,6 +5,7 @@ public abstract class Script : MonoBehaviour{
 
   protected GameObject go { get { return gameObject; } }
   protected CapsuleCollider capsule { get { return go.GetComponent<CapsuleCollider>(); } }
+  protected CapsuleCollider parentCapsule { get { return go.GetComponentInParent<CapsuleCollider>(); } }
   protected MeshRenderer meshRenderer { get { return go.GetComponent<MeshRenderer>(); } }
 
   protected Vector2 V2(Vector3 v3){ return new Vector2(v3.x, v3.y); }

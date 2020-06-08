@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class Death : Behavioural{
 
-  public GameObject skill, particle;
+  public GameObject skill, particle, shield;
   void OnEnable(){
     skill.SetActive(true);
     particle.SetActive(true);
+    shield.SetActive(true);
     capsule.enabled = true;
   }
 
@@ -21,6 +22,7 @@ public class Death : Behavioural{
     deathTime = time + deathDuration;
     skill.SetActive(false);
     particle.SetActive(false);
+    shield.SetActive(false);
     capsule.enabled = false;
     SetExplodes();
     SetFloats();
