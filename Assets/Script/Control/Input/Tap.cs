@@ -20,7 +20,7 @@ public class Tap : Control{
     RaycastHit hit;
     if (Physics.Raycast(ray, out hit)){
       center.player.Tapped(hit.point);
-      center.pool.Spawn(ObjectName.Tap, hit.point);
+      center.pool.Spawn(Spawnable.Tap, hit.point);
     }
   }
 

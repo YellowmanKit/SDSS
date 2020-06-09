@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Shield : Behavioural{
 
+  protected CapsuleCollider parentCapsule { get { return go.GetComponentInParent<CapsuleCollider>(); } }
+
   void OnEnable(){
     Reactivate();
   }

@@ -19,7 +19,7 @@ public abstract class Pilot : Behavioural{
   void Drive(){
     Vector2 delta = BoundaryClamp(destination) - V2(transform.position);
     engine.output = delta.magnitude / outputFactor;
-    engine.direction = (OutOfBoundary(transform.position) + (delta * brakeFactor - engine.velocity)).normalized;
+    engine.direction = (BackToArea(transform.position) + (delta * brakeFactor - engine.velocity)).normalized;
   }
 
 }

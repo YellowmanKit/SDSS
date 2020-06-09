@@ -3,11 +3,9 @@ using UnityEngine;
 
 public class Death : Behavioural{
 
-  public GameObject skill, particle, shield;
+  public GameObject soul;
   void OnEnable(){
-    skill.SetActive(true);
-    particle.SetActive(true);
-    shield.SetActive(true);
+    soul.SetActive(true);
     capsule.enabled = true;
   }
 
@@ -16,13 +14,11 @@ public class Death : Behavioural{
   public Float[] floats;
   void SetFloats(){ foreach(Float floater in floats){ floater.Detach(); } }
 
-  float deathDuration = 3f;
-  float deathTime = float.MaxValue;
+  float decay = 3f;
+  float decayTime = float.MaxValue;
   public void Die(){
-    deathTime = time + deathDuration;
-    skill.SetActive(false);
-    particle.SetActive(false);
-    shield.SetActive(false);
+    decayTime = time + decay;
+    soul.SetActive(false);
     capsule.enabled = false;
     SetExplodes();
     SetFloats();
@@ -36,9 +32,9 @@ public class Death : Behavioural{
   }
 
   void CheckDead(){
-    if(time > deathTime){
+    if(time > decayTime){
       go.SetActive(false);
-      deathTime = float.MaxValue;
+      decayTime = float.MaxValue;
     }
   }
 

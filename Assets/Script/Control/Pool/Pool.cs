@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ObjectName {
+public enum Spawnable {
   Tap,
   GatlingBullet,
   GatlingBulletOnHit,
@@ -12,31 +12,33 @@ public enum ObjectName {
 public class Pool : Control{
 
   public GameObject[] objects;
-  Dictionary<ObjectName, GameObject> objectDictionary = new Dictionary<ObjectName, GameObject>();
+  Dictionary<Spawnable, GameObject> spawnables = new Dictionary<Spawnable, GameObject>();
 
   protected override void Init(){
-    for(int i=0;i<objects.Length;i++){
-      objectDictionary.Add((ObjectName)i, objects[i]);
-    }
+    Loop(objects.Length, i=>{ spawnables.Add((Spawnable)i, objects[i]); });
   }
 
-  public GameObject Spawn(ObjectName objectName, Vector3 position, Quaternion rotation){
+  public GameObject Spawn(Spawnable spawnable, Vector3 position, Quaternion rotation){
     for(int i=0;i<transform.childCount;i++){
       GameObject child = transform.GetChild(i).gameObject;
-      if(child.name.Equals(objectName.ToString()) && !child.activeSelf){
+      if(child.name.Equals(spawnable.ToString()) && !child.activeSelf){
         child.SetActive(true);
         child.transform.position = position;
+        child.transform.rotation = rotation;
         return child;
       }
     }
-    GameObject newChild = Instantiate(objectDictionary[objectName], position, rotation);
-    newChild.transform.parent = transform;
-    newChild.name = objectName.ToString();
-    return newChild;
+    return NewSpawn(spawnable, position, rotation);
   }
 
-  public GameObject Spawn(ObjectName objectName, Vector3 position){
-    return Spawn(objectName, position, objectDictionary[objectName].transform.rotation);
+  public GameObject Spawn(Spawnable spawnable, Vector3 position){
+    return Spawn(spawnable, position, spawnables[spawnable].transform.rotation);
+  }
+
+  GameObject NewSpawn(Spawnable spawnable, Vector3 position, Quaternion rotation){
+    GameObject newChild = Instantiate(spawnables[spawnable], position, rotation, transform);
+    newChild.name = spawnable.ToString();
+    return newChild;
   }
 
 }

@@ -13,12 +13,15 @@ public class Gun : Active{
     OnUseEffect();
   }
 
-  public int damage;
+  public int damage, bulletPerShot;
+  public Spawnable bulletType;
   void Fire(){
-    Bullet bullet = center.pool.Spawn(ObjectName.GatlingBullet, shotSpawns[shotCount].position).GetComponent<Bullet>();
-    shotCount = (shotCount + 1) % shotSpawns.Length;
-    bullet.damage = damage;
-    bullet.Fire(force);
+    Loop(bulletPerShot, ()=>{
+      Bullet bullet = center.pool.Spawn(bulletType, shotSpawns[shotCount].position).GetComponent<Bullet>();
+      shotCount = (shotCount + 1) % shotSpawns.Length;
+      bullet.damage = damage;
+      bullet.Fire(force);
+    });
   }
 
   public Recoil[] recoils;
