@@ -4,7 +4,7 @@ using UnityEngine;
 public class Bullet : Projectile{
 
   public void Fire(float force){
-    Push(new Vector2(0f, force));
+    rb.AddForce(transform.forward * force);
   }
 
   void Update(){
@@ -14,7 +14,7 @@ public class Bullet : Projectile{
   }
 
   protected override void OnHit(Hitpoint hitpoint){
-    hitpoint.TakeDamage(damage);
+    hitpoint.TakeDamage(damage, transform.position);
   }
 
 }

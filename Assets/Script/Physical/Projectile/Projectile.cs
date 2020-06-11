@@ -6,11 +6,11 @@ public abstract class Projectile : Physical{
   public int damage;
 
   protected bool IsOutOfBoundary(Vector2 position){
-    return Mathf.Abs(position.x) > boundary.x || Mathf.Abs(position.y) > boundary.y;
+    return Mathf.Abs(position.y) > boundary.y;
   }
 
   protected void Die(){
-    Freeze();
+    rb.velocity = Vector3.zero;
     go.SetActive(false);
   }
 
@@ -19,9 +19,16 @@ public abstract class Projectile : Physical{
   void OnTriggerEnter(Collider other){
     Hitpoint hitpoint = other.GetComponent<Hitpoint>();
     if(hitpoint.shielded){ return; }
-    center.pool.Spawn(onHitEffect, transform.position, Quaternion.Euler(new Vector3(0f,0f, hitpoint.shield? 180f:0f)));
+    ApplyMomentum(other.gameObject.GetComponent<Rigidbody>());
+    GameObject effect = center.pool.Spawn(onHitEffect, transform.position, transform.rotation);
+    effect.transform.Rotate(0f, hitpoint.shield? 180f:0f, 0f);
     OnHit(hitpoint);
     Die();
+  }
+
+  protected float momentum { get { return rb.mass * rb.velocity.magnitude; } }
+  void ApplyMomentum(Rigidbody otherRb){
+    otherRb.AddForce(transform.forward * momentum);
   }
 
 

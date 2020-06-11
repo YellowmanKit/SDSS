@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Gun : Active{
 
-  protected override bool shouldUse { get { return center.HasEnemyInFront(transform.position.x); } }
+  protected override bool shouldUse { get { return center.HasEnemyInFront(transform.position.x, go.tag); } }
 
   public float force;
   int shotCount;
@@ -17,7 +17,9 @@ public class Gun : Active{
   public Spawnable bulletType;
   void Fire(){
     Loop(bulletPerShot, ()=>{
-      Bullet bullet = center.pool.Spawn(bulletType, shotSpawns[shotCount].position).GetComponent<Bullet>();
+      Transform shotSpawn = shotSpawns[shotCount];
+      Bullet bullet = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation).GetComponent<Bullet>();
+      bullet.gameObject.layer = go.layer + 2;
       shotCount = (shotCount + 1) % shotSpawns.Length;
       bullet.damage = damage;
       bullet.Fire(force);
@@ -30,7 +32,7 @@ public class Gun : Active{
   }
 
   void OnUseEffect(){
-    onUseEffects[shotCount].Play();
+    onUseEffects[shotCount]?.Play();
   }
 
 }

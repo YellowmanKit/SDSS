@@ -12,10 +12,10 @@ public class Hitpoint : Behavioural{
   public Shield shield;
   public Hitpoint under;
   public bool shielded { get { return under && under.hp > 0; } }
-  public void TakeDamage(int damage){
+  public void TakeDamage(int damage, Vector3 position){
     if(shielded){ return; }
     hp -= damage;
-    if(shield){ shield.Hitted(hp > 0); }
+    if(shield){ shield.Hitted(hp > 0, position); }
     if(hp <= 0 && canDie){ go.GetComponent<Death>().Die(); }
   }
 

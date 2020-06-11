@@ -18,18 +18,20 @@ public class Float : Animation{
   }
 
   public Vector3 directionMin, directionMax;
-  Vector3 direction { get { return new Vector3(
+  Vector3 randomDirection { get { return new Vector3(
     Random.Range(directionMin.x, directionMax.x),
     Random.Range(directionMin.y, directionMax.y),
     Random.Range(directionMin.z, directionMax.z)
   ); } }
   public float minForce, maxForce, minTorque, maxTorque;
-  float randomTorque{ get { return Random.Range(minTorque, maxTorque); } }
+  Vector3 randomForce{ get { return randomDirection * Random.Range(minForce, maxForce); } }
+  Vector3 randomTorque{ get { return randomDirection * Random.Range(minTorque, maxTorque); } }
+
   public void Detach(){
     rb.isKinematic = false;
     capsule.enabled = true;
-    Push(direction * Random.Range(minForce, maxForce));
-    Spin(new Vector3(randomTorque, randomTorque, randomTorque));
+    rb.AddForce(randomForce);
+    rb.AddTorque(randomForce);
   }
 
 }

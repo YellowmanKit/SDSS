@@ -10,7 +10,7 @@ public abstract class Script : MonoBehaviour{
   protected float time { get { return Time.timeSinceLevelLoad; } }
   protected float deltaTime { get { return Time.deltaTime; } }
 
-  protected Vector2 boundary = new Vector2(20f, 35f);
+  protected Vector2 boundary = new Vector2(22.5f, 40f);
 
   protected Center center;
   protected abstract void Init();

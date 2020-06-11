@@ -6,7 +6,7 @@ public class Rotate : Animation{
   public Vector3 rotation;
 
   void Update(){
-    Rotate(rotation);
+    transform.Rotate(rotation * deltaTime);
   }
 
 }

@@ -8,10 +8,8 @@ public class Engine : Craft{
   public float thrust, output;
   public Vector2 direction;
   void FixedUpdate(){
-    Push(direction * thrust * Mathf.Clamp(output, 0f, 1f));
+    rb.AddForce(direction * thrust * Mathf.Clamp(output, 0f, 1f));
     Tilt();
   }
-
-
 
 }
