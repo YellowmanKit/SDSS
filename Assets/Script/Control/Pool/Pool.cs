@@ -22,9 +22,9 @@ public class Pool : Control{
     for(int i=0;i<transform.childCount;i++){
       GameObject child = transform.GetChild(i).gameObject;
       if(child.name.Equals(spawnable.ToString()) && !child.activeSelf){
-        child.SetActive(true);
         child.transform.position = position;
         child.transform.rotation = rotation;
+        child.SetActive(true);
         return child;
       }
     }
