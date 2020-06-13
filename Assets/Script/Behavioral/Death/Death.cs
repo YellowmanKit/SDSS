@@ -6,7 +6,8 @@ public class Death : Behavioural{
   public GameObject soul;
   void OnEnable(){
     soul.SetActive(true);
-    capsule.enabled = true;
+    ControlComponents(true);
+    engine.Freeze(false);
   }
 
   public Explode[] explodes;
@@ -19,11 +20,12 @@ public class Death : Behavioural{
   public void Die(){
     decayTime = time + decay;
     soul.SetActive(false);
-    capsule.enabled = false;
+    engine.Freeze(true);
+    ControlComponents(false);
     SetExplodes();
     SetFloats();
     if(go.CompareTag("Alien")){
-      center.AlienDied(go.GetComponent<Alien>());
+      center.AlienDied(GetComponent<Alien>());
     }
   }
 
@@ -36,6 +38,11 @@ public class Death : Behavioural{
       go.SetActive(false);
       decayTime = float.MaxValue;
     }
+  }
+
+  void ControlComponents(bool active){
+    engine.enabled = active;
+    capsule.enabled = active;
   }
 
 }

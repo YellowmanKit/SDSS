@@ -171,6 +171,9 @@ MonoBehaviour:
   - {fileID: 1453002417419218372, guid: 47a06b4ce15a774409789ba6ef014e66, type: 3}
   - {fileID: 129965345217784227, guid: 6e465933df932d34b9060de249b3fe53, type: 3}
   - {fileID: 1315262329974400953, guid: da019fc9e0f240b47bda4ea822ef6521, type: 3}
+  - {fileID: 7153268027477375825, guid: d72ba4733e9e53e4a8c798c2ddda47d3, type: 3}
+  - {fileID: 404846425599445966, guid: 29c53313c2440804691061d154e84956, type: 3}
+  - {fileID: 4295899363366318642, guid: fe08f307913bdad4f989515e52213e54, type: 3}
 --- !u!1 &233017974
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &820328701
 Transform:
   m_ObjectHideFlags: 0
@@ -745,6 +748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AlienWarthog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315262329974400953, guid: da019fc9e0f240b47bda4ea822ef6521,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1315262329974400954, guid: da019fc9e0f240b47bda4ea822ef6521,
         type: 3}

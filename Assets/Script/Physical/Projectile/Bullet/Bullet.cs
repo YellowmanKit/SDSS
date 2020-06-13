@@ -4,7 +4,7 @@ using UnityEngine;
 public class Bullet : Projectile{
 
   public void Fire(float force){
-    rb.AddForce(transform.forward * force);
+    rb.AddForce(transform.forward * force, ForceMode.Impulse);
   }
 
   void Update(){

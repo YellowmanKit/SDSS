@@ -3,6 +3,6 @@ using UnityEngine;
 
 public abstract class Animation : Craft{
 
-  protected MeshRenderer meshRenderer { get { return go.GetComponent<MeshRenderer>(); } }
+  protected MeshRenderer meshRenderer { get { return GetComponent<MeshRenderer>(); } }
 
 }

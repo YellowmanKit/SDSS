@@ -1,38 +1,65 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : Active{
 
   protected override bool shouldUse { get { return center.HasEnemyInFront(transform.position.x, go.tag); } }
 
-  public float force;
-  int shotCount;
-  protected override void Use(){
-    Fire();
-    Recoil();
-    OnUseEffect();
+  public float useDelay, shootDelay;
+  public int bulletPerShot;
+  public List<float> shootList = new List<float>();
+  protected override void Init(){
+    shootList.Clear();
   }
 
-  public int damage, bulletPerShot;
+  int shotCount;
+  protected override void Use(){
+    onUseEffects[shotCount].Play();
+    Alert();
+    Loop(bulletPerShot, i=>{
+      shootList.Add(time + useDelay + shootDelay * i);
+    });
+  }
+
+  public float alertDuration;
+  public Spawnable alertName;
+  void Alert(){
+    if(alertDuration > 0f){
+      GameObject alert = center.pool.Spawn(alertName, transform.position, transform.rotation);
+      Linear linear = alert.GetComponent<Linear>();
+      if(linear != null){ linear.Play(alertDuration); }
+    }
+  }
+
+  protected override void CheckShoot(){
+    if(shootList.Count > 0 && time > shootList[0]){
+      shootList.Remove(shootList[0]);
+      Shoot();
+      CheckShoot();
+    }
+  }
+
+  void Shoot(){
+    Fire();
+    Recoil();
+  }
+
+  public float force;
+  public int damage;
   public Spawnable bulletType;
   void Fire(){
-    Loop(bulletPerShot, ()=>{
-      Transform shotSpawn = shotSpawns[shotCount];
-      Bullet bullet = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation).GetComponent<Bullet>();
-      bullet.gameObject.layer = go.layer + 2;
-      shotCount = (shotCount + 1) % shotSpawns.Length;
-      bullet.damage = damage;
-      bullet.Fire(force);
-    });
+    Transform shotSpawn = shotSpawns[shotCount];
+    Bullet bullet = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation).GetComponent<Bullet>();
+    bullet.gameObject.layer = go.layer + 2;
+    shotCount = (shotCount + 1) % shotSpawns.Length;
+    bullet.damage = damage;
+    bullet.Fire(force);
   }
 
   public Recoil[] recoils;
   void Recoil(){
     recoils[shotCount].RecoilIn();
-  }
-
-  void OnUseEffect(){
-    onUseEffects[shotCount]?.Play();
   }
 
 }

@@ -3,11 +3,7 @@ using UnityEngine;
 
 public abstract class Projectile : Physical{
 
-  public int damage;
-
-  protected bool IsOutOfBoundary(Vector2 position){
-    return Mathf.Abs(position.y) > boundary.y;
-  }
+  public float damage;
 
   protected void Die(){
     rb.velocity = Vector3.zero;

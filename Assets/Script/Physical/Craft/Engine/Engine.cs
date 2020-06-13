@@ -12,4 +12,9 @@ public class Engine : Craft{
     Tilt();
   }
 
+  public void Freeze(bool active){
+    rb.isKinematic = active;
+    rb.velocity = Vector3.zero;
+  }
+
 }

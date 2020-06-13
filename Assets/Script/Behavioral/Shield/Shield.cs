@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Shield : Behavioural{
 
+  public float threshold;
+
   float originalStartRotationX;
   protected override void Init(){
     ParticleSystem.MainModule main = shieldEffect.main;
@@ -10,7 +12,7 @@ public class Shield : Behavioural{
   }
 
   void OnEnable(){
-    Reactivate();
+    Activate(true);
   }
 
   public ParticleSystem shieldEffect;
@@ -18,11 +20,13 @@ public class Shield : Behavioural{
     ParticleSystem.MainModule main = shieldEffect.main;
     main.startRotationX = originalStartRotationX + Mathf.Atan((transform.position.x - position.x)/(transform.position.y - position.y));
     shieldEffect.Play();
-    parentCapsule.enabled = enable;
+    Activate(enable);
   }
 
-  public void Reactivate(){
-    parentCapsule.enabled = true;
+  public bool isActive;
+  public void Activate(bool activate){
+    parentCapsule.enabled = activate;
+    isActive = activate;
   }
 
 }

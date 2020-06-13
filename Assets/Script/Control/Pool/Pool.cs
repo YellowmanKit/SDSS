@@ -6,7 +6,10 @@ public enum Spawnable {
   Tap,
   GatlingBullet,
   GatlingBulletOnHit,
-  AlienWarthog
+  AlienWarthog,
+  NeutronBullet,
+  NeutronBulletOnHit,
+  LinearAlert
 }
 
 public class Pool : Control{

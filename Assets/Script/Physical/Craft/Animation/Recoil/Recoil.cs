@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Recoil : Animation{
 
-  Vector3 original;
+  public Vector3 original;
   protected override void Init(){
     original = transform.localPosition;
   }
@@ -19,7 +19,8 @@ public class Recoil : Animation{
 
   public float tension;
   void RecoilBack(){
-    transform.Translate((original - transform.localPosition) * tension * deltaTime, Space.Self);
+    Vector3 back = (original - transform.localPosition) * tension * deltaTime;
+    transform.localPosition = transform.localPosition + back;
   }
 
 }

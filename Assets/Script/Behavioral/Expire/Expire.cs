@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class OnHit : Behavioural{
+public class Expire : Behavioural{
 
   float spawnTime;
   void OnEnable(){

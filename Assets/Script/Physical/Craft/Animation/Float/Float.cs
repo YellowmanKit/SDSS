@@ -9,12 +9,14 @@ public class Float : Animation{
     originalEulerAngle = transform.localEulerAngles;
   }
 
+  Recoil recoil { get { return GetComponent<Recoil>(); } }
   void OnEnable(){
     if(!initialized){ return; }
     rb.isKinematic = true;
     capsule.enabled = false;
     transform.localPosition = originalPosition;
     transform.localEulerAngles = originalEulerAngle;
+    if(recoil != null){ recoil.enabled = true; }
   }
 
   public Vector3 directionMin, directionMax;
@@ -30,8 +32,9 @@ public class Float : Animation{
   public void Detach(){
     rb.isKinematic = false;
     capsule.enabled = true;
-    rb.AddForce(randomForce);
-    rb.AddTorque(randomForce);
+    rb.AddRelativeForce(randomForce, ForceMode.Impulse);
+    rb.AddRelativeTorque(randomTorque, ForceMode.Impulse);
+    if(recoil != null){ recoil.enabled = false; }
   }
 
 }
