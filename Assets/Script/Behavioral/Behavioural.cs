@@ -24,5 +24,5 @@ public abstract class Behavioural : Script{
       Mathf.Clamp(position.y, -boundary.y, boundary.y)
     );
   }
-
+  
 }

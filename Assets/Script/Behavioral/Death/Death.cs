@@ -25,7 +25,9 @@ public class Death : Behavioural{
     SetExplodes();
     SetFloats();
     if(go.CompareTag("Alien")){
-      center.AlienDied(GetComponent<Alien>());
+      center.AlienDied(go);
+    }else{
+      center.EarthDied(go);
     }
   }
 

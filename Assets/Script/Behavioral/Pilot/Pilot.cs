@@ -3,6 +3,10 @@ using UnityEngine;
 
 public abstract class Pilot : Behavioural{
 
+  protected Hitpoint hitpoint { get { return GetComponent<Hitpoint>(); } }
+  protected Shield shield { get { return GetComponentInChildren<Shield>(); } }
+  protected Energy energy { get { return GetComponent<Energy>(); } }
+
   public Vector2 destination;
   protected override void Init(){
     destination = transform.position;

@@ -22,7 +22,7 @@ public class Hitpoint : Behavioural{
   public float regen;
   void Regenerate(){
     if(hp < maxHp){
-      hp = Mathf.Clamp(hp + regen * deltaTime, -maxHp, maxHp);
+      hp = Mathf.Clamp(hp + regen * deltaTime, 0f, maxHp);
       if(shield != null && hp > maxHp * shield.threshold){
         shield.Activate(true);
       }

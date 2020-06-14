@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : Active{
@@ -8,11 +7,6 @@ public class Gun : Active{
 
   public float useDelay, shootDelay;
   public int bulletPerShot;
-  public List<float> shootList = new List<float>();
-  protected override void Init(){
-    shootList.Clear();
-  }
-
   int shotCount;
   protected override void Use(){
     onUseEffects[shotCount].Play();

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Shield : Behavioural{
 
   public float threshold;
+  public Hitpoint hitpoint { get { return GetComponent<Hitpoint>(); } }
 
   float originalStartRotationX;
   protected override void Init(){

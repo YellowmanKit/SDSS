@@ -5,34 +5,46 @@ using UnityEngine;
 public class Center : Control{
 
   public Player player;
-  public List<Alien> aliens;
+  public List<GameObject> aliens;
+  public List<GameObject> earths;
   public Pool pool;
   public Stage stage;
-
-  protected override void Init(){
-    player = GameObject.FindWithTag("Player").GetComponent<Player>();
-  }
+  public Panel panel;
 
   bool IsInFront(float x1, float x2){ return Mathf.Abs(x1 - x2) < 5f; }
-  public bool HasEnemyInFront(float x, string side){
+  public bool HasEnemyInFront(float positionX, string side){
     if(side == "Earth"){
-      foreach(Alien alien in aliens){
-        if(IsInFront(x, alien.transform.position.x)){ return true; }
+      foreach(GameObject alien in aliens){
+        if(IsInFront(positionX, alien.transform.position.x)){ return true; }
       }
       return false;
     }else{
-      return true;
+      foreach(GameObject earth in earths){
+        if(IsInFront(positionX, earth.transform.position.x)){ return true; }
+      }
+      return false;
     }
   }
 
-  public void AlienSpawned(Alien alien){
+  public void AlienSpawned(GameObject alien){
     aliens.Add(alien);
   }
 
-  public void AlienDied(Alien alien){
+  public void AlienDied(GameObject alien){
     aliens.Remove(alien);
     if(aliens.Count == 0){
-      center.stage.NextStage();
+      center.stage.StageEnded();
+    }
+  }
+
+  public void EarthSpawned(GameObject earth){
+    earths.Add(earth);
+  }
+
+  public void EarthDied(GameObject earth){
+    earths.Remove(earth);
+    if(earths.Count == 0){
+      center.stage.GameOver();
     }
   }
 

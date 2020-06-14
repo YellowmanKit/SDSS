@@ -5,12 +5,36 @@ public class Player : Pilot{
 
   void OnEnable(){
     transform.localRotation = Quaternion.Euler(270f, 0f, 0f);
+    SetCounter();
+  }
+
+  Counter hitpointCounter, shieldCounter, energyCounter;
+  void SetCounter(){
+    Transform counter = GameObject.Find("Counter").transform;
+    hitpointCounter = counter.GetChild(0).GetComponent<Counter>();
+    shieldCounter = counter.GetChild(1).GetComponent<Counter>();
+    energyCounter = counter.GetChild(2).GetComponent<Counter>();
   }
 
   public ParticleSystem boost;
   public void Tapped(Vector3 position){
     destination = position;
     boost.Play();
+  }
+
+  void Update(){
+    UpdateCounter();
+  }
+
+  void UpdateCounter(){
+    hitpointCounter.targetValue = hitpoint.hp;
+    hitpointCounter.targetValueMax = hitpoint.maxHp;
+
+    shieldCounter.targetValue = shield? (shield.isActive? shield.hitpoint.hp: 0f): 0f;
+    shieldCounter.targetValueMax = shield? shield.hitpoint.maxHp: float.MaxValue;
+
+    energyCounter.targetValue = shield? energy.energy: 0f;
+    energyCounter.targetValueMax = energy.maxEnergy;
   }
 
 }

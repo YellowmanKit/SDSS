@@ -4855,7 +4855,7 @@ GameObject:
   - component: {fileID: 1526694469}
   m_Layer: 8
   m_Name: GaltingGun
-  m_TagString: Untagged
+  m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4896,15 +4896,15 @@ MonoBehaviour:
   - {fileID: 4660522350020603100}
   cd: 0.1
   delay: 0
+  cost: 5
   freezeOnUse: 0
   useDelay: 0
   shootDelay: 0
   bulletPerShot: 1
-  shootList: []
   alertDuration: 0
   alertName: 0
   force: 4000
-  damage: 1
+  damage: 10
   bulletType: 1
   recoils:
   - {fileID: 5214823462429989138}
@@ -34072,9 +34072,10 @@ GameObject:
   - component: {fileID: 101033322934142461}
   - component: {fileID: 6515044355500314121}
   - component: {fileID: 6515044355500314122}
+  - component: {fileID: 5691235624333498501}
   m_Layer: 8
   m_Name: SpaceEagle
-  m_TagString: Player
+  m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34168,7 +34169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 1000
+  maxHp: 100
   hp: 0
   canDie: 1
   shield: {fileID: 0}
@@ -34196,6 +34197,21 @@ MonoBehaviour:
   - {fileID: 6005930248503691007}
   - {fileID: 8741031156725471956}
   - {fileID: 7651474857938206959}
+--- !u!114 &5691235624333498501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148147795433880218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27c728a43628664a837471c73cc2553, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 100
+  energy: 0
+  regen: 25
 --- !u!1 &2150897935834606180
 GameObject:
   m_ObjectHideFlags: 0
@@ -54207,12 +54223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 50
   hp: 0
   canDie: 0
   shield: {fileID: 8408900810780636024}
   under: {fileID: 0}
-  regen: 20
+  regen: 5
 --- !u!1 &6242006436198878220
 GameObject:
   m_ObjectHideFlags: 0

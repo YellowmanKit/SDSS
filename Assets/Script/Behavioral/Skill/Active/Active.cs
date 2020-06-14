@@ -1,24 +1,29 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Active : Skill{
 
   public Transform[] shotSpawns;
   public ParticleSystem[] onUseEffects;
-  public float cd, delay;
+  public float cd, delay, cost;
   protected float nextUse, readyTime;
+  protected List<float> shootList = new List<float>();
 
   void OnEnable(){
-    readyTime = time + delay;
+    shootList.Clear();
+    nextUse = 0f;
+    readyTime = delay > 0f? time + delay: 0f;
   }
 
-  bool canUse { get { return time > readyTime && time > nextUse; } }
+  bool canUse { get { return time > readyTime && time > nextUse && energy.energy >= cost; } }
   protected abstract bool shouldUse{ get; }
   protected abstract void Use();
   public float freezeOnUse;
   void CheckUse(){
     if(canUse && shouldUse){
       nextUse = time + cd;
+      energy.energy -= cost;
       Use();
       if(freezeOnUse > 0f){
         GetComponentInParent<Alien>().Freeze(freezeOnUse);
