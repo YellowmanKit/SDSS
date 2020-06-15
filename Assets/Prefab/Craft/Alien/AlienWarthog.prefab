@@ -14567,6 +14567,7 @@ MonoBehaviour:
   floats:
   - {fileID: 196032548066293719}
   - {fileID: 6968585232526978515}
+  orbValue: 1
 --- !u!114 &352914472576508678
 MonoBehaviour:
   m_ObjectHideFlags: 0

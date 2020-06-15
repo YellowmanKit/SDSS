@@ -6,6 +6,7 @@ public abstract class Script : MonoBehaviour{
 
   protected GameObject go { get { return gameObject; } }
   protected CapsuleCollider capsule { get { return GetComponent<CapsuleCollider>(); } }
+  protected Rigidbody rb { get { return GetComponent<Rigidbody>(); } }
 
   protected float time { get { return Time.timeSinceLevelLoad; } }
   protected float deltaTime { get { return Time.deltaTime; } }

@@ -24,11 +24,21 @@ public class Death : Behavioural{
     ControlComponents(false);
     SetExplodes();
     SetFloats();
+    DropOrb();
     if(go.CompareTag("Alien")){
       center.AlienDied(go);
     }else{
       center.EarthDied(go);
     }
+  }
+
+  public int orbValue;
+  void DropOrb(){
+    Loop(orbValue, ()=> {
+      center.orbCount += 1;
+      GameObject orb = center.pool.Spawn(center.orbCount % 2 == 0? Spawnable.ShieldOrb: Spawnable.EnergyOrb, transform.position);
+      orb.GetComponent<Float>().Detach();
+    });
   }
 
   void Update(){

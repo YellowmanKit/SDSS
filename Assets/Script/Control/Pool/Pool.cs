@@ -9,7 +9,9 @@ public enum Spawnable {
   AlienWarthog,
   NeutronBullet,
   NeutronBulletOnHit,
-  LinearAlert
+  LinearAlert,
+  ShieldOrb,
+  EnergyOrb
 }
 
 public class Pool : Control{

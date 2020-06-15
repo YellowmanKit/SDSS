@@ -4904,7 +4904,7 @@ MonoBehaviour:
   alertDuration: 0
   alertName: 0
   force: 4000
-  damage: 10
+  damage: 20
   bulletType: 1
   recoils:
   - {fileID: 5214823462429989138}
@@ -34197,6 +34197,7 @@ MonoBehaviour:
   - {fileID: 6005930248503691007}
   - {fileID: 8741031156725471956}
   - {fileID: 7651474857938206959}
+  orbValue: 0
 --- !u!114 &5691235624333498501
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class Center : Control{
   public Pool pool;
   public Stage stage;
   public Panel panel;
+  public int orbCount;
 
   bool IsInFront(float x1, float x2){ return Mathf.Abs(x1 - x2) < 5f; }
   public bool HasEnemyInFront(float positionX, string side){
