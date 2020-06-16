@@ -19,13 +19,15 @@ public class Hitpoint : Behavioural{
     if(hp <= 0 && canDie){ GetComponent<Death>().Die(); }
   }
 
+  public void GainHp(float value){
+    hp = Mathf.Clamp(hp + value, 0f, maxHp);
+  }
+
   public float regen;
   void Regenerate(){
-    if(hp < maxHp){
-      hp = Mathf.Clamp(hp + regen * deltaTime, 0f, maxHp);
-      if(shield != null && hp > maxHp * shield.threshold){
-        shield.Activate(true);
-      }
+    GainHp(regen * deltaTime);
+    if(shield != null && hp > maxHp * shield.threshold){
+      shield.Activate(true);
     }
   }
 

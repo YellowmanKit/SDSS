@@ -10,8 +10,9 @@ public class Float : Animation{
   }
 
   Recoil recoil { get { return GetComponent<Recoil>(); } }
+  public bool noReset;
   void OnEnable(){
-    if(!initialized){ return; }
+    if(!initialized || noReset){ return; }
     rb.isKinematic = true;
     capsule.enabled = false;
     transform.localPosition = originalPosition;

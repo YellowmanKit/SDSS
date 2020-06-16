@@ -8,9 +8,28 @@ public class Counter : UI{
   float displayValue;
 
   public Image maskImage;
+  public RectTransform icon;
+  public float baseValue, newValue;
+  public float expandSpeed;
   void Update(){
+    UpdateValue();
+    UpdateHeight();
+  }
+
+  void UpdateValue(){
     displayValue = displayValue + (targetValue - displayValue) * reactionSpeed * deltaTime;
     maskImage.fillAmount = Mathf.Clamp(displayValue / targetValueMax, 0f, 1f);
+  }
+
+  void UpdateHeight(){
+    if(icon != null){
+      float currentHeight = maskImage.rectTransform.sizeDelta.y;
+      float newHeight = 495f * newValue / baseValue;
+      float delta = newHeight - currentHeight;
+      maskImage.rectTransform.sizeDelta = new Vector2(25f, currentHeight + delta * deltaTime * expandSpeed);
+      Vector3 iconPosition = icon.position;
+      icon.position = new Vector3(iconPosition.x, currentHeight + 20f, iconPosition.z);
+    }
   }
 
 }

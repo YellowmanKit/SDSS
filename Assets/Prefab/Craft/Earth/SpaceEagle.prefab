@@ -4904,7 +4904,7 @@ MonoBehaviour:
   alertDuration: 0
   alertName: 0
   force: 4000
-  damage: 20
+  damage: 100
   bulletType: 1
   recoils:
   - {fileID: 5214823462429989138}
@@ -33934,6 +33934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noReset: 0
   directionMin: {x: -0.25, y: -0.25, z: -1}
   directionMax: {x: 0.25, y: 0.25, z: -1}
   minForce: 10
@@ -34036,6 +34037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noReset: 0
   directionMin: {x: -1, y: -0.25, z: -0.25}
   directionMax: {x: -1, y: 0.25, z: 0.25}
   minForce: 10
@@ -34139,8 +34141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0}
-  brakeFactor: 8
-  outputFactor: 0.5
+  brakeFactor: 6
+  outputFactor: 2
   boost: {fileID: 1508449943023850410}
 --- !u!114 &101033322934142461
 MonoBehaviour:
@@ -53857,6 +53859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noReset: 0
   directionMin: {x: -0.25, y: -0.25, z: 1}
   directionMax: {x: 0.25, y: 0.25, z: 1}
   minForce: 10
@@ -54111,6 +54114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noReset: 0
   directionMin: {x: 1, y: -0.25, z: -0.25}
   directionMax: {x: 1, y: 0.25, z: 0.25}
   minForce: 10

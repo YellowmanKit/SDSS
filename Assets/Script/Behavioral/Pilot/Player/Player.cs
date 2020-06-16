@@ -14,6 +14,11 @@ public class Player : Pilot{
     hitpointCounter = counter.GetChild(0).GetComponent<Counter>();
     shieldCounter = counter.GetChild(1).GetComponent<Counter>();
     energyCounter = counter.GetChild(2).GetComponent<Counter>();
+    shieldCounter.baseValue = shield.hitpoint.maxHp;
+    shieldCounter.newValue = shield.hitpoint.maxHp;
+
+    energyCounter.baseValue = energy.maxEnergy;
+    energyCounter.newValue = energy.maxEnergy;
   }
 
   public ParticleSystem boost;
@@ -35,6 +40,11 @@ public class Player : Pilot{
 
     energyCounter.targetValue = shield? energy.energy: 0f;
     energyCounter.targetValueMax = energy.maxEnergy;
+  }
+
+  public void UpdateCounterHeight(){
+    shieldCounter.newValue = shield.hitpoint.maxHp;
+    energyCounter.newValue = energy.maxEnergy;
   }
 
 }

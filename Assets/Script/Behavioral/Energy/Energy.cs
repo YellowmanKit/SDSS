@@ -9,8 +9,12 @@ public class Energy : Behavioural{
     energy = maxEnergy;
   }
 
+  public void GainEnergy(float value){
+    energy = Mathf.Clamp(energy + value, 0f, maxEnergy);
+  }
+
   void Update(){
-    energy =  Mathf.Clamp(energy + regen * deltaTime, -maxEnergy, maxEnergy);
+    GainEnergy(regen * deltaTime);
   }
 
 }
