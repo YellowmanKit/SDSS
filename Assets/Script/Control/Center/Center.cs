@@ -12,16 +12,18 @@ public class Center : Control{
   public Panel panel;
   public int orbCount;
 
-  bool IsInFront(float x1, float x2){ return Mathf.Abs(x1 - x2) < 5f; }
-  public bool HasEnemyInFront(float positionX, string side){
+  bool IsInLine(Vector2 pos1, Vector2 pos2, bool inFront){
+    return (Mathf.Abs(pos1.x - pos2.x) < 5f) && (inFront? pos1.y > pos2.y:pos2.y > pos1.y);
+  }
+  public bool HasEnemyInLine(Vector2 position, string side, bool inFront){
     if(side == "Earth"){
       foreach(GameObject alien in aliens){
-        if(IsInFront(positionX, alien.transform.position.x)){ return true; }
+        if(IsInLine(alien.transform.position, position, inFront)){ return true; }
       }
       return false;
     }else{
       foreach(GameObject earth in earths){
-        if(IsInFront(positionX, earth.transform.position.x)){ return true; }
+        if(IsInLine(position, earth.transform.position, inFront)){ return true; }
       }
       return false;
     }

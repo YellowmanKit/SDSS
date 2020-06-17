@@ -4904,7 +4904,7 @@ MonoBehaviour:
   alertDuration: 0
   alertName: 0
   force: 4000
-  damage: 100
+  damage: 20
   bulletType: 1
   recoils:
   - {fileID: 5214823462429989138}

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Gun : Active{
 
-  protected override bool shouldUse { get { return center.HasEnemyInFront(transform.position.x, go.tag); } }
+  protected override bool shouldUse { get { return center.HasEnemyInLine(transform.position, go.tag, true); } }
 
   public float useDelay, shootDelay;
   public int bulletPerShot;
