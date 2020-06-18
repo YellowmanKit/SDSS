@@ -619,6 +619,7 @@ MonoBehaviour:
   pool: {fileID: 5553216}
   stage: {fileID: 820328702}
   panel: {fileID: 1314788391}
+  orbMeter: 0
   orbCount: 0
 --- !u!1 &612687827
 GameObject:

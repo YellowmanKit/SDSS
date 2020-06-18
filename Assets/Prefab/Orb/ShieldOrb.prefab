@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScale: 0
   dropForce: 200
-  shieldValue: 0.25
+  shieldValue: 0.2
   energyValue: 0
   maxShieldValue: 1
   maxEnergyValue: 0
@@ -6217,7 +6217,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6.283185
+      scalar: -6.283185
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2

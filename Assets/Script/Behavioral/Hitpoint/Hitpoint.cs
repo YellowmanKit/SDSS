@@ -25,7 +25,7 @@ public class Hitpoint : Behavioural{
 
   public float regen;
   void Regenerate(){
-    GainHp(regen * deltaTime);
+    GainHp(regen * maxHp * deltaTime);
     if(shield != null && hp > maxHp * shield.threshold){
       shield.Activate(true);
     }

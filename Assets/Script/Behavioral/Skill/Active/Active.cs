@@ -6,7 +6,9 @@ public abstract class Active : Skill{
 
   public Transform[] shotSpawns;
   public ParticleSystem[] onUseEffects;
-  public float cd, delay, cost;
+  public Flash[] flashes;
+
+  public float cd, randomCd, delay, cost;
   protected float nextUse, readyTime;
   protected List<float> shootList = new List<float>();
 
@@ -22,7 +24,7 @@ public abstract class Active : Skill{
   public float freezeOnUse;
   void CheckUse(){
     if(canUse && shouldUse){
-      nextUse = time + cd;
+      nextUse = time + cd + Random.Range(-randomCd, randomCd);
       energy.energy -= cost;
       Use();
       if(freezeOnUse > 0f){

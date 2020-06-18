@@ -15,7 +15,7 @@ public class Stage : Control{
     center.player.destination = center.player.transform.position;
     stage++;
     center.panel.stageCount.text = "" + stage;
-    Loop(stage, ()=>{ SpawnAlien(Spawnable.AlienWarthog); });
+    Loop(stage * 3, ()=>{ SpawnAlien(Spawnable.AlienWarthog); });
   }
 
   public void StageEnded(){

@@ -10,7 +10,9 @@ public class Center : Control{
   public Pool pool;
   public Stage stage;
   public Panel panel;
-  public int orbCount;
+  public float orbMeter, orbCount;
+
+  public Transform EarthTarget{ get { return earths[Random.Range(0, earths.Count)].transform; } }
 
   bool IsInLine(Vector2 pos1, Vector2 pos2, bool inFront){
     return (Mathf.Abs(pos1.x - pos2.x) < 5f) && (inFront? pos1.y > pos2.y:pos2.y > pos1.y);

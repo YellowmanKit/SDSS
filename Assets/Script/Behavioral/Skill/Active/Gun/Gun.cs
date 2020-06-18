@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class Gun : Active{
 
-  protected override bool shouldUse { get { return center.HasEnemyInLine(transform.position, go.tag, true); } }
+  public bool alwaysUse;
+  protected override bool shouldUse { get { return alwaysUse || center.HasEnemyInLine(transform.position, go.tag, true); } }
 
   public float useDelay, shootDelay;
   public int bulletPerShot;
@@ -43,6 +44,7 @@ public class Gun : Active{
   public int damage;
   public Spawnable bulletType;
   void Fire(){
+    flashes[shotCount].Emit();
     Transform shotSpawn = shotSpawns[shotCount];
     Bullet bullet = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation).GetComponent<Bullet>();
     bullet.gameObject.layer = go.layer + 2;

@@ -17,7 +17,9 @@ public class Death : Behavioural{
 
   float decay = 3f;
   float decayTime = float.MaxValue;
+  public Flash flash;
   public void Die(){
+    flash.Emit();
     decayTime = time + decay;
     soul.SetActive(false);
     engine.Freeze(true);
@@ -32,13 +34,18 @@ public class Death : Behavioural{
     }
   }
 
-  public int orbValue;
+  public float orbValue;
   void DropOrb(){
-    Loop(orbValue, ()=> {
-      center.orbCount += 1;
-      GameObject orb = center.pool.Spawn(center.orbCount % 2 == 0? Spawnable.ShieldOrb: Spawnable.EnergyOrb, transform.position);
-      orb.GetComponent<Float>().Detach();
-    });
+    center.orbMeter += orbValue;
+    if(center.orbMeter >= 1f){
+      int count = (int)Mathf.Floor(center.orbMeter);
+      Loop(count, ()=> {
+        center.orbMeter -= 1f;
+        center.orbCount += 1;
+        GameObject orb = center.pool.Spawn(center.orbCount % 2 == 0? Spawnable.ShieldOrb: Spawnable.EnergyOrb, transform.position);
+        orb.GetComponent<Float>().Detach();
+      });
+    }
   }
 
   void Update(){

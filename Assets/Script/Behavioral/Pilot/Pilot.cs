@@ -23,4 +23,8 @@ public abstract class Pilot : Behavioural{
     engine.direction = (BackToArea(transform.position) + (delta * brakeFactor - engine.velocity)).normalized;
   }
 
+  protected Vector2 RandomPosition(bool isAlien){
+    return new Vector2(Random.Range(-boundary.x, boundary.x), Random.Range(-boundary.y, boundary.y));
+  }
+  
 }

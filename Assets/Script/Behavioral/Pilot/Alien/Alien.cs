@@ -3,20 +3,24 @@ using UnityEngine;
 
 public class Alien : Pilot{
 
-  public float prepareTime;
+  public float prepare, randomPrepare, minY, maxY;
   public GameObject skill;
   float activeTime;
   void OnEnable(){
     skill.SetActive(false);
-    activeTime = time + prepareTime;
+    activeTime = time + prepare + Random.Range(-randomPrepare, randomPrepare);
     transform.localRotation = Quaternion.Euler(90f, 180f, 0f);
+    destination = RandomPosition(true);
+    engageY = Random.Range(minY, maxY);
   }
 
-  public float engageDistance;
+  Transform target;
+  float engageY;
   void Update(){
+    if(!target || !target.gameObject.activeSelf){ target = center.EarthTarget; }
     if(time > unfreezeTime){
-      destination.x = pp.x;
-      destination.y = pp.y + engageDistance;
+      destination.x = target.position.x;
+      destination.y = engageY;
     }
     if(time > activeTime){
       skill.SetActive(true);

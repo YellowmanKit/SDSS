@@ -14,7 +14,7 @@ public class Energy : Behavioural{
   }
 
   void Update(){
-    GainEnergy(regen * deltaTime);
+    GainEnergy(regen * maxEnergy * deltaTime);
   }
 
 }
