@@ -6,8 +6,8 @@ public class Death : Behavioural{
   public GameObject soul;
   void OnEnable(){
     soul.SetActive(true);
-    ControlComponents(true);
     engine.Freeze(false);
+    ControlComponents(true);
   }
 
   public Explode[] explodes;
@@ -49,10 +49,10 @@ public class Death : Behavioural{
   }
 
   void Update(){
-    CheckDead();
+    CheckDecay();
   }
 
-  void CheckDead(){
+  void CheckDecay(){
     if(time > decayTime){
       go.SetActive(false);
       decayTime = float.MaxValue;

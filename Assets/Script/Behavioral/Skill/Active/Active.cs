@@ -7,8 +7,10 @@ public abstract class Active : Skill{
   public Transform[] shotSpawns;
   public ParticleSystem[] onUseEffects;
   public Flash[] flashes;
+  public Flash[] glows;
 
-  public float cd, randomCd, delay, cost;
+  public bool alwaysUse;
+  public float cd, randomCd, delay, cost, useDelay;
   protected float nextUse, readyTime;
   protected List<float> shootList = new List<float>();
 

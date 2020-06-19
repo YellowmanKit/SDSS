@@ -4898,12 +4898,14 @@ MonoBehaviour:
   flashes:
   - {fileID: 426949131129145441}
   - {fileID: 4409194990556815226}
+  glows: []
+  alwaysUse: 0
   cd: 0.1
+  randomCd: 0
   delay: 0
   cost: 5
-  freezeOnUse: 0
-  alwaysUse: 0
   useDelay: 0
+  freezeOnUse: 0
   shootDelay: 0
   bulletPerShot: 1
   alertDuration: 0
@@ -14776,7 +14778,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensity: 100
   initIntensity: 0
+  maxIntensity: 0
   decayIn: 1
+  glowIn: 0
 --- !u!1 &1453588917723976480
 GameObject:
   m_ObjectHideFlags: 0
@@ -49141,7 +49145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensity: 100
   initIntensity: 0
+  maxIntensity: 0
   decayIn: 0.1
+  glowIn: 0
 --- !u!1 &5048630003575155769
 GameObject:
   m_ObjectHideFlags: 0
@@ -54061,7 +54067,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensity: 100
   initIntensity: 0
+  maxIntensity: 0
   decayIn: 0.1
+  glowIn: 0
 --- !u!1 &5242640682258207904
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Gun : Active{
 
-  public bool alwaysUse;
   protected override bool shouldUse { get { return alwaysUse || center.HasEnemyInLine(transform.position, go.tag, true); } }
 
-  public float useDelay, shootDelay;
+  public float shootDelay;
   public int bulletPerShot;
   int shotCount;
   protected override void Use(){
-    onUseEffects[shotCount].Play();
     Alert();
+    onUseEffects[shotCount].Play();
+    if(glows.Length > 0){ glows[shotCount].GlowForSecond(useDelay); }
     Loop(bulletPerShot, i=>{
       shootList.Add(time + useDelay + shootDelay * i);
     });

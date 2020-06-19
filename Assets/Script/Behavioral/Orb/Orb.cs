@@ -33,17 +33,20 @@ public class Orb : Behavioural{
   }
 
   void GrantEnergy(Energy energy){
+    if(energyValue == 0f){ return; }
     energy.GainEnergy(energy.maxEnergy * energyValue);
     energy.maxEnergy = energy.maxEnergy + maxEnergyValue;
   }
 
   void GrantShield(Collider other){
+    if(shieldValue == 0f){ return; }
     Hitpoint hitpoint = other.transform.GetComponentInChildren<Hitpoint>();
     if(hitpoint.shield == null){
       hitpoint = other.transform.GetChild(0).GetComponentInChildren<Hitpoint>();
     }
     hitpoint.GainHp(hitpoint.maxHp * shieldValue);
     hitpoint.maxHp = hitpoint.maxHp + maxShieldValue;
+    hitpoint.shield.Hitted(true, transform.position);
   }
 
   public float shrinkSpeed;
