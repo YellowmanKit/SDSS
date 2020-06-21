@@ -17,7 +17,7 @@ public class Orb : Behavioural{
   public float shieldValue, energyValue, maxShieldValue, maxEnergyValue;
   void OnTriggerEnter(Collider other){
     Player player = other.GetComponentInParent<Player>();
-    if(player != null){
+    if(player){
       GrantEnergy(other.GetComponentInParent<Energy>());
       GrantShield(other);
       player.UpdateCounterHeight();
@@ -41,8 +41,8 @@ public class Orb : Behavioural{
   void GrantShield(Collider other){
     if(shieldValue == 0f){ return; }
     Hitpoint hitpoint = other.transform.GetComponentInChildren<Hitpoint>();
-    if(hitpoint.shield == null){
-      hitpoint = other.transform.GetChild(0).GetComponentInChildren<Hitpoint>();
+    if(!hitpoint.shield){
+      hitpoint = hitpoint.under;
     }
     hitpoint.GainHp(hitpoint.maxHp * shieldValue);
     hitpoint.maxHp = hitpoint.maxHp + maxShieldValue;

@@ -4,6 +4,12 @@ using UnityEngine.UI;
 
 public class Element : UI{
 
+  public bool init;
+
+  protected override void Init(){
+    Activate(init);
+  }
+
   public void Activate(bool active){
     button.interactable = active;
     animator.Play(active? "Active":"Inactive");

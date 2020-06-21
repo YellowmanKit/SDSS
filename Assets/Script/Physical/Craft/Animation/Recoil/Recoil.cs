@@ -3,14 +3,13 @@ using UnityEngine;
 
 public class Recoil : Animation{
 
-  public Vector3 original;
   protected override void Init(){
-    original = transform.localPosition;
+    originalPosition = transform.localPosition;
   }
 
-  public Vector3 recoil;
+  public Vector3 deltaPosition;
   public void RecoilIn(){
-    transform.localPosition = transform.localPosition + recoil;
+    transform.localPosition = transform.localPosition + deltaPosition;
   }
 
   void Update(){
@@ -19,7 +18,7 @@ public class Recoil : Animation{
 
   public float tension;
   void RecoilBack(){
-    Vector3 back = (original - transform.localPosition) * tension * deltaTime;
+    Vector3 back = (originalPosition - transform.localPosition) * tension * deltaTime;
     transform.localPosition = transform.localPosition + back;
   }
 

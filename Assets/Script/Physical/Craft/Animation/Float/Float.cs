@@ -3,13 +3,11 @@ using UnityEngine;
 
 public class Float : Animation{
 
-  Vector3 originalPosition, originalEulerAngle;
   protected override void Init(){
     originalPosition = transform.localPosition;
     originalEulerAngle = transform.localEulerAngles;
   }
 
-  Recoil recoil { get { return GetComponent<Recoil>(); } }
   public bool noReset;
   void OnEnable(){
     if(noReset){ return; }
@@ -18,7 +16,7 @@ public class Float : Animation{
     if(!initialized){ return; }
     transform.localPosition = originalPosition;
     transform.localEulerAngles = originalEulerAngle;
-    if(recoil != null){ recoil.enabled = true; }
+    if(recoil){ recoil.enabled = true; }
   }
 
   public Vector3 directionMin, directionMax;
@@ -36,7 +34,7 @@ public class Float : Animation{
     capsule.enabled = true;
     rb.AddRelativeForce(randomForce, ForceMode.Impulse);
     rb.AddRelativeTorque(randomTorque, ForceMode.Impulse);
-    if(recoil != null){ recoil.enabled = false; }
+    if(recoil){ recoil.enabled = false; }
   }
 
 }

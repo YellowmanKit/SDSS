@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Gun : Active{
 
-  protected override bool shouldUse { get { return alwaysUse || center.HasEnemyInLine(transform.position, go.tag, true); } }
+  protected override bool shouldUse { get { return (alwaysUse || center.HasEnemyInLine(transform.position, go.tag, true)) && !center.stage.gameOvered; } }
 
   public float shootDelay;
   public int bulletPerShot;
@@ -23,7 +23,7 @@ public class Gun : Active{
     if(alertDuration > 0f){
       GameObject alert = center.pool.Spawn(alertName, transform.position, transform.rotation);
       Linear linear = alert.GetComponent<Linear>();
-      if(linear != null){ linear.Play(alertDuration); }
+      if(linear){ linear.Play(alertDuration); }
     }
   }
 

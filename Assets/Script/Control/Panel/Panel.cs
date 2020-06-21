@@ -4,7 +4,10 @@ using UnityEngine.UI;
 
 public class Panel : Control{
 
-  public Element nextButton, restartButton;
+  public Element next, restart;
   public Text stageCount;
+  public Select select;
+  public bool selecting { get { return select.gameObject.activeSelf; } }
+  public Sprite empty;
 
 }

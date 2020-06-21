@@ -7,28 +7,24 @@ public abstract class Script : MonoBehaviour{
   protected GameObject go { get { return gameObject; } }
   protected CapsuleCollider capsule { get { return GetComponent<CapsuleCollider>(); } }
   protected Rigidbody rb { get { return GetComponent<Rigidbody>(); } }
+  protected Camera cam { get { return GameObject.FindWithTag("MainCamera").GetComponent<Camera>(); } }
 
   protected float time { get { return Time.timeSinceLevelLoad; } }
   protected float deltaTime { get { return Time.deltaTime; } }
 
   protected Vector2 boundary = new Vector2(20f, 40f);
-  protected bool IsOutOfBoundary(Vector2 position){
-    return Mathf.Abs(position.y) > boundary.y;
-  }
+  protected bool IsOutOfBoundary(Vector2 position){ return Mathf.Abs(position.y) > boundary.y; }
 
   protected Center center;
   protected abstract void Init();
   protected bool initialized;
-  void Start(){
+  void Awake(){
     center = GameObject.FindWithTag("Center").GetComponent<Center>();
     Init();
     initialized = true;
   }
-  protected void Loop(int count, Action<int> action){
-    for(int i=0;i<count;i++){ action(i); }
-  }
-  protected void Loop(int count, Action action){
-    for(int i=0;i<count;i++){ action(); }
-  }
+
+  protected void Loop(int count, Action<int> action){ for(int i=0;i<count;i++){ action(i); } }
+  protected void Loop(int count, Action action){ for(int i=0;i<count;i++){ action(); } }
 
 }

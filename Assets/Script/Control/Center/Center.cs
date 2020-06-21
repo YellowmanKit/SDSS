@@ -12,7 +12,7 @@ public class Center : Control{
   public Panel panel;
   public float orbMeter, orbCount;
 
-  public Transform EarthTarget{ get { return earths[Random.Range(0, earths.Count)].transform; } }
+  public Transform EarthTarget{ get { return earths.Count > 0? earths[Random.Range(0, earths.Count)].transform: null; } }
 
   bool IsInLine(Vector2 pos1, Vector2 pos2, bool inFront){
     return (Mathf.Abs(pos1.x - pos2.x) < 5f) && (inFront? pos1.y > pos2.y:pos2.y > pos1.y);

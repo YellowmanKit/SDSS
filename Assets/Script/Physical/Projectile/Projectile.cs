@@ -24,7 +24,7 @@ public abstract class Projectile : Physical{
 
   protected float momentum { get { return rb.mass * rb.velocity.magnitude; } }
   void ApplyMomentum(Rigidbody otherRb){
-    otherRb.AddForce(transform.forward * momentum);
+    otherRb.AddForce(transform.forward * momentum, ForceMode.Impulse);
   }
 
 

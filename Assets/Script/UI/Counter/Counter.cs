@@ -4,13 +4,12 @@ using UnityEngine.UI;
 
 public class Counter : UI{
 
-  public float targetValue, targetValueMax, reactionSpeed;
+  public float targetValue, targetValueMax, reactionSpeed, baseHeight, iconHeight;
   float displayValue;
 
   public Image maskImage;
   public RectTransform icon;
-  public float baseValue, newValue;
-  public float expandSpeed;
+  public float baseValue, newValue, expandSpeed;
   void Update(){
     UpdateValue();
     UpdateHeight();
@@ -22,13 +21,13 @@ public class Counter : UI{
   }
 
   void UpdateHeight(){
-    if(icon != null){
+    if(icon){
       float currentHeight = maskImage.rectTransform.sizeDelta.y;
-      float newHeight = 495f * newValue / baseValue;
+      float newHeight = baseHeight * newValue / baseValue;
       float delta = newHeight - currentHeight;
       maskImage.rectTransform.sizeDelta = new Vector2(25f, currentHeight + delta * deltaTime * expandSpeed);
       Vector3 iconPosition = icon.position;
-      icon.position = new Vector3(iconPosition.x, currentHeight + 20f, iconPosition.z);
+      icon.position = new Vector3(iconPosition.x, currentHeight + iconHeight, iconPosition.z);
     }
   }
 

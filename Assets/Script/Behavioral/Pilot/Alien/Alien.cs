@@ -18,13 +18,11 @@ public class Alien : Pilot{
   float engageY;
   void Update(){
     if(!target || !target.gameObject.activeSelf){ target = center.EarthTarget; }
-    if(time > unfreezeTime){
+    if(target && time > unfreezeTime){
       destination.x = target.position.x;
       destination.y = engageY;
     }
-    if(time > activeTime){
-      skill.SetActive(true);
-    }
+    if(time > activeTime){ skill.SetActive(true); }
   }
 
   float unfreezeTime;

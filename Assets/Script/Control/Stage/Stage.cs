@@ -4,14 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class Stage : Control{
 
-  protected override void Init(){
-    center.panel.restartButton.Activate(false);
-  }
-
   public int stage;
   public bool started { get { return stage > 0; } }
   public void NextStage(){
-    center.panel.nextButton.Activate(false);
+    center.panel.next.Activate(false);
     center.player.destination = center.player.transform.position;
     stage++;
     center.panel.stageCount.text = "" + stage;
@@ -19,7 +15,7 @@ public class Stage : Control{
   }
 
   public void StageEnded(){
-    center.panel.nextButton.Activate(true);
+    center.panel.next.Activate(true);
   }
 
   Vector3 alienSpawnPosition { get { return new Vector3(Random.Range(-boundary.x, boundary.x), Random.Range(boundary.y ,boundary.y + 10f), 0f); } }
@@ -27,8 +23,10 @@ public class Stage : Control{
     center.AlienSpawned(center.pool.Spawn(alienName, alienSpawnPosition));
   }
 
+  public bool gameOvered;
   public void GameOver(){
-    center.panel.restartButton.Activate(true);
+    gameOvered = true;
+    center.panel.restart.Activate(true);
   }
 
   public void Restart(){
