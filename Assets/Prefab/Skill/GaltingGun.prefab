@@ -9856,6 +9856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6665861537712923717}
   - component: {fileID: 6665861537712923716}
+  - component: {fileID: 1955284988596862732}
   m_Layer: 8
   m_Name: GaltingGun
   m_TagString: Earth
@@ -9908,7 +9909,6 @@ MonoBehaviour:
   cost: 4
   useDelay: 0
   freezeOnUse: 0
-  slot: {fileID: 0}
   shootDelay: 0
   bulletPerShot: 1
   alertDuration: 0
@@ -9919,3 +9919,17 @@ MonoBehaviour:
   recoils:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &1955284988596862732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665861537712923714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc677017d156cb4e9a129e604d9e4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usingShotSpawns: 0100000002000000
+  usingRecoils: 0100000002000000

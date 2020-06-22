@@ -10,4 +10,12 @@ public class Panel : Control{
   public bool selecting { get { return select.gameObject.activeSelf; } }
   public Sprite empty;
 
+  public Slot[] slots;
+  public void AllowSkillChange(bool allow){
+    Loop(slots.Length, i=>{
+      slots[i].change.gameObject.SetActive(allow);
+    });
+  }
+
+
 }

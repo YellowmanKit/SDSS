@@ -26,7 +26,7 @@ public class Orb : Behavioural{
   }
 
   void SetOrb(bool active){
-    if(active){ effectTransform.localScale = Vector3.one; }
+    go.SetActive(active);
     targetScale = active? 1:0;
     capsule.enabled = active;
     rb.velocity = active? rb.velocity: Vector3.zero;
@@ -49,18 +49,6 @@ public class Orb : Behavioural{
     hitpoint.shield.Hitted(true, transform.position);
   }
 
-  public float shrinkSpeed;
-  Transform effectTransform { get { return transform.GetChild(0); } }
-  void Update(){
-    float currentScale = effectTransform.localScale.x;
-    float delta = targetScale - currentScale;
-    float newScale = currentScale + delta * deltaTime * shrinkSpeed;
-    effectTransform.localScale = new Vector3(newScale, newScale, newScale);
-    if(transform.position.y < -boundary.y){ SetOrb(false); }
-    if(currentScale < 0.0001f){
-      rb.velocity = Vector3.zero;
-      go.SetActive(false);
-    }
-  }
+  void Update(){ if(transform.position.y < -boundary.y){ SetOrb(false); } }
 
 }

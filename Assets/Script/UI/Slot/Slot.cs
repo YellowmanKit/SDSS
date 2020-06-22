@@ -13,4 +13,6 @@ public class Slot : UI{
     select.slot = GetComponent<Slot>();
   }
 
+  public GameObject skill;
+
 }

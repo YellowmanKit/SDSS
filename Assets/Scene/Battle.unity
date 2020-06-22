@@ -233,6 +233,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   cd: {fileID: 1528970235}
   change: {fileID: 0}
+  skill: {fileID: 0}
 --- !u!114 &66302309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490dfa707dc9c3049a4e300727d4b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillPrefab: {fileID: 6665861537712923714, guid: e37cacf923cd7a444b9ed6086ab67da1,
+    type: 3}
   icon: {fileID: 1159643224}
   selected: 0
 --- !u!1 &110804403
@@ -2636,6 +2639,8 @@ MonoBehaviour:
   stageCount: {fileID: 2026786863}
   select: {fileID: 1905572395}
   empty: {fileID: 21300000, guid: 76a8ac3f4d13d634fb7e1af26d69327d, type: 3}
+  slots:
+  - {fileID: 1796453199}
 --- !u!114 &1314788392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3068,6 +3073,7 @@ MonoBehaviour:
   icon: {fileID: 922716593}
   cd: {fileID: 2130212640}
   change: {fileID: 1971900940}
+  skill: {fileID: 0}
 --- !u!1 &1887648287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3156,7 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dff32314974b5d429184aea7a6a7ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedSlot: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!1 &1971900937
 GameObject:
   m_ObjectHideFlags: 0

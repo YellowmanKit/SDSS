@@ -54412,6 +54412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7816989226434675989}
+  - component: {fileID: 7377617701364840434}
   m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
@@ -54442,6 +54443,26 @@ Transform:
   m_Father: {fileID: 6743959860480431234}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7377617701364840434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6494436480443168518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec4b162932884c4391dcbdac9e3a0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpawns:
+  - {fileID: 6856817533783294810}
+  - {fileID: 4148732611910671919}
+  - {fileID: 2677996094333728558}
+  recoils:
+  - {fileID: 3519218989892344287}
+  - {fileID: 5214823462429989138}
+  - {fileID: 1592695557299511451}
 --- !u!1 &6740930501643097141
 GameObject:
   m_ObjectHideFlags: 0
@@ -59304,6 +59325,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3550624086133116979}
+  - component: {fileID: 5961097242670452697}
   m_Layer: 8
   m_Name: Soul
   m_TagString: Untagged
@@ -59328,6 +59350,20 @@ Transform:
   m_Father: {fileID: 6743959860480431234}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5961097242670452697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8171519847196237972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e072779a6633241860471f196255ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: 8408900810780636024}
+  skill: {fileID: 313662345}
 --- !u!1 &8518085013723719593
 GameObject:
   m_ObjectHideFlags: 0

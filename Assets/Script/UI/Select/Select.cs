@@ -13,5 +13,5 @@ public class Select : UI{
     go.SetActive(false);
     slot.change.gameObject.SetActive(true);
   }
-
+  
 }

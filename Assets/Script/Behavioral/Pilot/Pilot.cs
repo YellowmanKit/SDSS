@@ -3,9 +3,12 @@ using UnityEngine;
 
 public abstract class Pilot : Behavioural{
 
+  public Body body { get { return GetComponentInChildren<Body>(); } }
+  public Soul soul { get { return GetComponentInChildren<Soul>(); } }
+  public Energy energy { get { return GetComponent<Energy>(); } }
+
   protected Hitpoint hitpoint { get { return GetComponent<Hitpoint>(); } }
   protected Shield shield { get { return GetComponentInChildren<Shield>(); } }
-  protected Energy energy { get { return GetComponent<Energy>(); } }
 
   public Vector2 destination;
   protected override void Init(){
@@ -26,5 +29,5 @@ public abstract class Pilot : Behavioural{
   protected Vector2 RandomPosition(bool isAlien){
     return new Vector2(Random.Range(-boundary.x, boundary.x), Random.Range(-boundary.y, boundary.y));
   }
-  
+
 }

@@ -38,7 +38,7 @@ public class Center : Control{
   public void AlienDied(GameObject alien){
     aliens.Remove(alien);
     if(aliens.Count == 0){
-      center.stage.StageEnded();
+      center.stage.StageCleared();
     }
   }
 

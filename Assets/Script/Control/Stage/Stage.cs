@@ -7,15 +7,24 @@ public class Stage : Control{
   public int stage;
   public bool started { get { return stage > 0; } }
   public void NextStage(){
-    center.panel.next.Activate(false);
+    ClosePenal();
     center.player.destination = center.player.transform.position;
     stage++;
     center.panel.stageCount.text = "" + stage;
     Loop(stage * 3, ()=>{ SpawnAlien(Spawnable.AlienWarthog); });
   }
 
-  public void StageEnded(){
+  void ClosePenal(){
+    center.panel.next.Activate(false);
+    center.panel.select.OnConfirmChange();
+    center.panel.AllowSkillChange(false);
+  }
+
+  public void StageCleared(){
     center.panel.next.Activate(true);
+    center.panel.AllowSkillChange(true);
+    center.player.soul.shield.hitpoint.GainHp(float.MaxValue);
+    center.player.energy.GainEnergy(float.MaxValue);
   }
 
   Vector3 alienSpawnPosition { get { return new Vector3(Random.Range(-boundary.x, boundary.x), Random.Range(boundary.y ,boundary.y + 10f), 0f); } }
@@ -32,6 +41,5 @@ public class Stage : Control{
   public void Restart(){
     SceneManager.LoadScene(0);
   }
-
 
 }
