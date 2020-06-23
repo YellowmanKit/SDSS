@@ -79,11 +79,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScale: 0
   dropForce: 200
+  onCollectEffect: 10
   shieldValue: 0
   energyValue: 0.2
   maxShieldValue: 0
   maxEnergyValue: 1
-  shrinkSpeed: 9
 --- !u!114 &6038619863190375627
 MonoBehaviour:
   m_ObjectHideFlags: 0

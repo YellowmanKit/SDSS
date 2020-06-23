@@ -11,7 +11,9 @@ public enum Spawnable {
   NeutronBulletOnHit,
   LinearAlert,
   ShieldOrb,
-  EnergyOrb
+  EnergyOrb,
+  ShieldOnCollect,
+  EnergyOnCollect
 }
 
 public class Pool : Control{

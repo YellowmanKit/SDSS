@@ -14,10 +14,12 @@ public class Orb : Behavioural{
     rb.AddForce(new Vector3(0f, -dropForce * deltaTime, 0f));
   }
 
+  public Spawnable onCollectEffect;
   public float shieldValue, energyValue, maxShieldValue, maxEnergyValue;
   void OnTriggerEnter(Collider other){
     Player player = other.GetComponentInParent<Player>();
     if(player){
+      center.pool.Spawn(onCollectEffect, transform.position);
       GrantEnergy(other.GetComponentInParent<Energy>());
       GrantShield(other);
       player.UpdateCounterHeight();
