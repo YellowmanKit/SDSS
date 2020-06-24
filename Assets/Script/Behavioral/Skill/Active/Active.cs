@@ -10,8 +10,8 @@ public abstract class Active : Skill{
   public Flash[] glows;
 
   public bool alwaysUse;
-  public float cd, randomCd, delay, cost, useDelay;
-  protected float nextUse, readyTime;
+  public float cd, randomCd, delay, cost, useDelay, nextUse;
+  protected float readyTime;
   protected List<float> shootList = new List<float>();
 
   void OnEnable(){
@@ -26,13 +26,17 @@ public abstract class Active : Skill{
   public float freezeOnUse;
   void CheckUse(){
     if(canUse && shouldUse){
-      nextUse = time + cd + Random.Range(-randomCd, randomCd);
-      energy.energy -= cost;
-      Use();
-      if(freezeOnUse > 0f){
-        GetComponentInParent<Alien>().Freeze(freezeOnUse);
-      }
+      ConfirmUse();
     }
+  }
+
+  public void ActivelyUse(){ if(canUse){ ConfirmUse(); } }
+
+  void ConfirmUse(){
+    nextUse = time + cd + Random.Range(-randomCd, randomCd);
+    energy.energy -= cost;
+    if(freezeOnUse > 0f){ GetComponentInParent<Alien>().Freeze(freezeOnUse); }
+    Use();
   }
 
   protected abstract void CheckShoot();

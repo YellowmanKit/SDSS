@@ -80,7 +80,7 @@ MonoBehaviour:
   targetScale: 0
   dropForce: 200
   onCollectEffect: 9
-  shieldValue: 0.2
+  shieldValue: 0.3
   energyValue: 0
   maxShieldValue: 1
   maxEnergyValue: 0

@@ -9906,15 +9906,16 @@ MonoBehaviour:
   cd: 0.1
   randomCd: 0
   delay: 0
-  cost: 4
+  cost: 5
   useDelay: 0
+  nextUse: 0
   freezeOnUse: 0
   shootDelay: 0
   bulletPerShot: 1
   alertDuration: 0
   alertName: 0
   force: 300
-  damage: 20
+  damage: 50
   bulletType: 1
   recoils:
   - {fileID: 0}
@@ -9933,3 +9934,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usingShotSpawns: 0100000002000000
   usingRecoils: 0100000002000000
+  skillButton: {fileID: 0}
+  cdIndicator: {fileID: 0}
