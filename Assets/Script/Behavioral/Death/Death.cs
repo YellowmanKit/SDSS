@@ -4,7 +4,9 @@ using UnityEngine;
 public class Death : Behavioural{
 
   public GameObject soul;
+  bool died;
   void OnEnable(){
+    died = false;
     soul.SetActive(true);
     engine.Freeze(false);
     ControlComponents(true);
@@ -19,6 +21,8 @@ public class Death : Behavioural{
   float decayTime = float.MaxValue;
   public Flash flash;
   public void Die(){
+    if(died){ return; }
+    died = true;
     flash.Emit();
     decayTime = time + decay;
     soul.SetActive(false);

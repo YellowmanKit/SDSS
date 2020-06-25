@@ -5,21 +5,21 @@ public abstract class Projectile : Physical{
 
   public float damage;
 
-  protected void Die(){
-    rb.velocity = Vector3.zero;
-    go.SetActive(false);
-  }
-
-  public Spawnable onHitEffect;
   protected abstract void OnHit(Hitpoint hitpoint);
+  public bool penetrate;
   void OnTriggerEnter(Collider other){
     Hitpoint hitpoint = other.GetComponent<Hitpoint>();
-    if(hitpoint.shielded){ return; }
+    if(!penetrate && hitpoint.shielded){ return; }
     ApplyMomentum(other.gameObject.GetComponent<Rigidbody>());
-    GameObject effect = center.pool.Spawn(onHitEffect, transform.position, transform.rotation);
-    effect.transform.Rotate(0f, hitpoint.shield? 180f:0f, 0f);
+    SpawnOnHitEffect(hitpoint);
     OnHit(hitpoint);
-    Die();
+  }
+
+  protected abstract Vector3 HitPosition(Hitpoint hitpoint);
+  public Spawnable onHitEffect;
+  protected void SpawnOnHitEffect(Hitpoint hitpoint){
+    GameObject effect = center.pool.Spawn(onHitEffect, HitPosition(hitpoint), transform.rotation);
+    effect.transform.Rotate(0f, (hitpoint.shield != null && !penetrate)? 180f:0f, 0f);
   }
 
   protected float momentum { get { return rb.mass * rb.velocity.magnitude; } }

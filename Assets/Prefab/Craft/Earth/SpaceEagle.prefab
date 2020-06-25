@@ -44298,8 +44298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de1be88a26916f4595cf978037ce7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deltaPosition: {x: 0, y: 0, z: 0}
-  tension: 1
+  deltaPosition: {x: 0, y: 0, z: -0.25}
+  tension: 10
 --- !u!1 &5529876795582574623
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,14 +8,9 @@ public class Panel : Control{
   public Text stageCount;
   public Select select;
   public bool selecting { get { return select.gameObject.activeSelf; } }
+  public Ability ability;
   public Sprite empty;
 
   public Slot[] slots;
-  public void AllowSkillChange(bool allow){
-    Loop(slots.Length, i=>{
-      slots[i].change.gameObject.SetActive(allow);
-    });
-  }
-
 
 }

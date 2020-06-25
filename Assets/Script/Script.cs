@@ -5,10 +5,11 @@ using System;
 public abstract class Script : MonoBehaviour{
 
   protected GameObject go { get { return gameObject; } }
-  protected CapsuleCollider capsule { get { return GetComponent<CapsuleCollider>(); } }
   protected Rigidbody rb { get { return GetComponent<Rigidbody>(); } }
   protected Camera cam { get { return GameObject.FindWithTag("MainCamera").GetComponent<Camera>(); } }
-
+  public CapsuleCollider capsule { get { return GetComponent<CapsuleCollider>(); } }
+  protected BoxCollider box { get { return GetComponent<BoxCollider>(); } }
+  
   protected float time { get { return Time.timeSinceLevelLoad; } }
   protected float deltaTime { get { return Time.deltaTime; } }
 

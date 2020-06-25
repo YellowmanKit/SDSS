@@ -17,14 +17,15 @@ public class Stage : Control{
   void ClosePenal(){
     center.panel.next.Activate(false);
     center.panel.select.OnConfirmChange();
-    center.panel.AllowSkillChange(false);
+    center.panel.ability.SetChangeButtons(false);
   }
 
   public void StageCleared(){
     center.panel.next.Activate(true);
-    center.panel.AllowSkillChange(true);
+    center.panel.ability.SetChangeButtons(true);
     center.player.soul.shield.hitpoint.GainHp(float.MaxValue);
     center.player.energy.GainEnergy(float.MaxValue);
+    center.panel.ability.UnlockSlot();
   }
 
   Vector3 alienSpawnPosition { get { return new Vector3(Random.Range(-boundary.x, boundary.x), Random.Range(boundary.y ,boundary.y + 10f), 0f); } }

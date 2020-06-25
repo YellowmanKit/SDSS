@@ -43,19 +43,35 @@ public class Gun : Active{
   public float force;
   public int damage;
   public Spawnable bulletType;
+  public bool isBeam;
   void Fire(){
     flashes[shotCount].Emit();
     Transform shotSpawn = shotSpawns[shotCount];
-    Bullet bullet = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation).GetComponent<Bullet>();
-    bullet.gameObject.layer = go.layer + 2;
     shotCount = (shotCount + 1) % shotSpawns.Length;
+    GameObject projectile = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation);
+    projectile.layer = go.layer + 2;
+    if(isBeam){
+      FireBeam(projectile.GetComponent<Beam>());
+    }else{
+      FireButtet(projectile.GetComponent<Bullet>());
+    }
+  }
+
+  void FireBeam(Beam beam){
+    beam.damage = damage;
+    beam.Fire(transform);
+  }
+
+  void FireButtet(Bullet bullet){
     bullet.damage = damage;
     bullet.Fire(force);
   }
 
   public Recoil[] recoils;
   void Recoil(){
-    recoils[shotCount].RecoilIn();
+    if(recoils.Length > shotCount){
+      recoils[shotCount].RecoilIn();
+    }
   }
 
 }

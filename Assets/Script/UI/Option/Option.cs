@@ -5,25 +5,32 @@ using UnityEngine;
 public class Option : UI{
 
   public Image icon;
-  public bool selected;
-  public void OnSelect(){
-    selected = !selected;
+  public bool equiped;
+  public void OnToggle(){
+    bool active = !equiped;
+    select.SetOptions(false);
+    OnSelect(active);
+  }
+
+  public void OnSelect(bool selected){
     cg.alpha = selected? 1f: 0.25f;
-    select.slot.icon.sprite = selected? icon.sprite: panel.empty;
-    if(selected){
+    if(!equiped && selected){
+      ability.slot.Assign(this);
       EquipSkill();
     }else{
-      GameObject.Destroy(select.slot.skill);
+      equiped = false;
+      ability.slot.Dismiss();
     }
   }
 
   public GameObject skillPrefab;
   void EquipSkill(){
-    select.slot.skill = Instantiate(skillPrefab, center.player.soul.skill);
-    Equip equip = select.slot.skill.GetComponent<Equip>();
-    equip.cdIndicator = select.slot.cd;
-    equip.skillButton = select.slot.skillButton;
+    ability.slot.skill = Instantiate(skillPrefab, center.player.soul.skill);
+    Equip equip = ability.slot.skill.GetComponent<Equip>();
+    equip.cdIndicator = ability.slot.cd;
+    equip.skillButton = ability.slot.skillButton;
     equip.Set();
+    equiped = true;
     center.panel.next.Activate(true);
   }
 

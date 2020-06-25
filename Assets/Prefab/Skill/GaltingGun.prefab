@@ -9933,6 +9933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usingShotSpawns: 0100000002000000
-  usingRecoils: 0100000002000000
+  usingRecoils: 0200000001000000
   skillButton: {fileID: 0}
   cdIndicator: {fileID: 0}

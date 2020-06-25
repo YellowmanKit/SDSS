@@ -14546,7 +14546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 50
   hp: 0
   canDie: 1
   shield: {fileID: 0}
@@ -20176,7 +20176,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -34643,6 +34643,7 @@ MonoBehaviour:
   delay: 0
   cost: 50
   useDelay: 1
+  nextUse: 0
   freezeOnUse: 2
   shootDelay: 0.1
   bulletPerShot: 3
@@ -34651,6 +34652,7 @@ MonoBehaviour:
   force: 150
   damage: 50
   bulletType: 4
+  isBeam: 0
   recoils:
   - {fileID: 8322702931586246511}
 --- !u!1 &4882920872293305543
@@ -35043,7 +35045,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

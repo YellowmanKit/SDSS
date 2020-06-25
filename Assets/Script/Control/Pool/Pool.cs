@@ -13,7 +13,9 @@ public enum Spawnable {
   ShieldOrb,
   EnergyOrb,
   ShieldOnCollect,
-  EnergyOnCollect
+  EnergyOnCollect,
+  ChargeBeam,
+  ChargeBeamOnHit
 }
 
 public class Pool : Control{
