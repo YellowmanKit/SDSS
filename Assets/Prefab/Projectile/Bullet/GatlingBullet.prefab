@@ -77,7 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  onHitEffect: 2
+  penetrate: 0
+  onHitEffect: 3
 --- !u!1 &1453002418602726546
 GameObject:
   m_ObjectHideFlags: 0

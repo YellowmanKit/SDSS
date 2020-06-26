@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Beam : Projectile{
 
-  public float duration, frequency;
-
+  public float duration, frequency, width;
+  Transform parent;
   public void Fire(Transform source){
-    transform.parent = source;
+    box.size = new Vector3(width, box.size.y, box.size.z);
+    parent = source;
     GetComponent<Expire>().duration = duration;
   }
 
@@ -17,8 +18,16 @@ public class Beam : Projectile{
   }
 
   void Update(){
+    transform.position = parent.position;
     CheckIntersect();
     DealDamage();
+    Shrink();
+  }
+
+  public float shrinkIn;
+  void Shrink(){
+    float newWidth = Mathf.Clamp(box.size.x - (width * deltaTime / shrinkIn), 0f, width);
+    box.size = new Vector3(newWidth, box.size.y, box.size.z);
   }
 
   void CheckIntersect(){

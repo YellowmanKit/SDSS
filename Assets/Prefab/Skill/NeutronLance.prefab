@@ -14684,7 +14684,8 @@ MonoBehaviour:
   alertName: 0
   force: 150
   damage: 100
-  bulletType: 4
+  bulletType: 5
+  isBeam: 0
   recoils:
   - {fileID: 0}
 --- !u!114 &3613353508503588266

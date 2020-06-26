@@ -34648,10 +34648,10 @@ MonoBehaviour:
   shootDelay: 0.1
   bulletPerShot: 3
   alertDuration: 1
-  alertName: 6
+  alertName: 7
   force: 150
   damage: 50
-  bulletType: 4
+  bulletType: 5
   isBeam: 0
   recoils:
   - {fileID: 8322702931586246511}

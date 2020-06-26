@@ -14737,7 +14737,7 @@ MonoBehaviour:
   alertName: 0
   force: 0
   damage: 200
-  bulletType: 11
+  bulletType: 12
   isBeam: 1
   recoils: []
 --- !u!114 &777348222562433846

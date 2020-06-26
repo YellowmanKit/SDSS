@@ -76,10 +76,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  onHitEffect: 12
   penetrate: 1
+  onHitEffect: 13
   duration: 1
   frequency: 10
+  width: 1
+  shrinkIn: 1
 --- !u!114 &860358525532300157
 MonoBehaviour:
   m_ObjectHideFlags: 0
