@@ -6,20 +6,32 @@ public abstract class Projectile : Physical{
   public float damage;
 
   protected abstract void OnHit(Hitpoint hitpoint);
-  public bool penetrate;
+  public bool isBeam;
   void OnTriggerEnter(Collider other){
     Hitpoint hitpoint = other.GetComponent<Hitpoint>();
-    if(!penetrate && hitpoint.shielded){ return; }
-    ApplyMomentum(other.gameObject.GetComponent<Rigidbody>());
-    SpawnOnHitEffect(hitpoint);
+    if(!isBeam && hitpoint.shielded){ return; }
+    Hit(hitpoint);
+  }
+
+  void Hit(Hitpoint hitpoint){
+    ApplyMomentum(hitpoint.GetComponent<Rigidbody>());
+    SpawnOnHitEffect(HitPosition(hitpoint), (hitpoint.shield != null) && !isBeam);
     OnHit(hitpoint);
+  }
+
+  protected abstract void AreaDamage();
+  protected abstract void Die();
+  public void Explode(){
+    SpawnOnHitEffect(transform.position, false);
+    AreaDamage();
+    Die();
   }
 
   protected abstract Vector3 HitPosition(Hitpoint hitpoint);
   public Spawnable onHitEffect;
-  protected void SpawnOnHitEffect(Hitpoint hitpoint){
-    GameObject effect = center.pool.Spawn(onHitEffect, HitPosition(hitpoint), transform.rotation);
-    effect.transform.Rotate(0f, (hitpoint.shield != null && !penetrate)? 180f:0f, 0f);
+  protected void SpawnOnHitEffect(Vector3 position, bool reverse){
+    GameObject effect = center.pool.Spawn(onHitEffect, position, transform.rotation);
+    effect.transform.Rotate(0f, reverse? 180f:0f, 0f);
   }
 
   protected float momentum { get { return rb.mass * rb.velocity.magnitude; } }

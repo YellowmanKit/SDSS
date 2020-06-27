@@ -7,12 +7,14 @@ public class Center : Control{
   public Player player;
   public List<GameObject> aliens;
   public List<GameObject> earths;
+  public List<GameObject> GetOpponents(string side){ if(side == "Alien"){ return earths; } return aliens; }
   public Pool pool;
   public Stage stage;
   public Panel panel;
   public float orbMeter, orbCount;
 
-  public Transform EarthTarget{ get { return earths.Count > 0? earths[Random.Range(0, earths.Count)].transform: null; } }
+  public Transform earthTarget{ get { return earths.Count > 0? earths[Random.Range(0, earths.Count)].transform: null; } }
+  public Transform alienTarget{ get { return aliens.Count > 0? aliens[Random.Range(0, aliens.Count)].transform: null; } }
 
   bool IsInLine(Vector2 pos1, Vector2 pos2, bool inFront){
     return (Mathf.Abs(pos1.x - pos2.x) < 5f) && (inFront? pos1.y > pos2.y:pos2.y > pos1.y);
@@ -51,6 +53,11 @@ public class Center : Control{
     if(earths.Count == 0){
       center.stage.GameOver();
     }
+  }
+
+  public float timeScale;
+  void Update(){
+    Time.timeScale = timeScale;
   }
 
 }

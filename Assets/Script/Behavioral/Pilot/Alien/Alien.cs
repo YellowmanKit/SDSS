@@ -17,7 +17,7 @@ public class Alien : Pilot{
   Transform target;
   float engageY;
   void Update(){
-    if(!target || !target.gameObject.activeSelf){ target = center.EarthTarget; }
+    if(!target || !target.gameObject.activeSelf){ target = center.earthTarget; }
     if(target && time > unfreezeTime){
       destination.x = target.position.x;
       destination.y = engageY;

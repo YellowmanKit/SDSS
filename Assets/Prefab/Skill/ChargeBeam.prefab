@@ -14727,7 +14727,7 @@ MonoBehaviour:
   cd: 1.5
   randomCd: 0
   delay: 0
-  cost: 50
+  cost: 20
   useDelay: 0.5
   nextUse: 0
   freezeOnUse: 0

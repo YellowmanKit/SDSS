@@ -11,8 +11,9 @@ public class Select : UI{
 
   public void Open(Slot slot){
     select.gameObject.SetActive(true);
+    Option option = slot.option;
     SetOptions(false);
-    if(slot.option != null){ slot.option.OnSelect(true); }
+    if(option != null){ option.OnSelect(true); }
   }
 
   public void OnConfirmChange(){

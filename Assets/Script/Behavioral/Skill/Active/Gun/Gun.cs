@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class Gun : Active{
 
-  protected override bool shouldUse { get { return (alwaysUse || center.HasEnemyInLine(transform.position, go.tag, true)) && !center.stage.gameOvered; } }
+  protected override bool shouldUse { get {
+    return ((alwaysUse && center.stage.battling) ||
+    center.HasEnemyInLine(transform.position, go.tag, true)) && !center.stage.gameOvered; } }
 
   public float shootDelay;
   public int bulletPerShot;
   int shotCount;
   protected override void Use(){
     Alert();
+    if(onUseEffects.Length > shotCount)
     onUseEffects[shotCount].Play();
     if(glows.Length > 0){ glows[shotCount].GlowForSecond(useDelay); }
     Loop(bulletPerShot, i=>{
@@ -45,7 +48,9 @@ public class Gun : Active{
   public Spawnable bulletType;
   public bool isBeam;
   void Fire(){
-    flashes[shotCount].Emit();
+    if(flashes.Length > shotCount){
+      flashes[shotCount].Emit();
+    }
     Transform shotSpawn = shotSpawns[shotCount];
     shotCount = (shotCount + 1) % shotSpawns.Length;
     GameObject projectile = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation);
@@ -53,7 +58,7 @@ public class Gun : Active{
     if(isBeam){
       FireBeam(projectile.GetComponent<Beam>());
     }else{
-      FireButtet(projectile.GetComponent<Bullet>());
+      FireBullet(projectile.GetComponent<Bullet>());
     }
   }
 
@@ -62,8 +67,11 @@ public class Gun : Active{
     beam.Fire(transform);
   }
 
-  void FireButtet(Bullet bullet){
+  public int penetrate;
+  void FireBullet(Bullet bullet){
     bullet.damage = damage;
+    bullet.penetrate = penetrate;
+    bullet.tag = go.tag;
     bullet.Fire(force);
   }
 

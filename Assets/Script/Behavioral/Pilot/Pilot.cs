@@ -10,10 +10,9 @@ public abstract class Pilot : Behavioural{
   protected Hitpoint hitpoint { get { return GetComponent<Hitpoint>(); } }
   protected Shield shield { get { return GetComponentInChildren<Shield>(); } }
 
+  protected Death death { get { return GetComponent<Death>(); } }
+
   public Vector2 destination;
-  protected override void Init(){
-    destination = transform.position;
-  }
 
   void FixedUpdate(){
     Drive();

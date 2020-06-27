@@ -16,7 +16,11 @@ public enum Spawnable {
   ShieldOnCollect,
   EnergyOnCollect,
   ChargeBeam,
-  ChargeBeamOnHit
+  ChargeBeamOnHit,
+  PlasmaBullet,
+  PlasmaBulletOnHit,
+  AntimatterMissile,
+  AntimatterMissileOnHit
 }
 
 public class Pool : Control{

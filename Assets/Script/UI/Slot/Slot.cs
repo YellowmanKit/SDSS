@@ -10,7 +10,7 @@ public class Slot : UI{
 
   public void OnChange(){
     ability.SetSlots(false);
-    ability.slot = GetComponent<Slot>();
+    ability.slot = this;
     SetActive(true);
     select.Open(this);
   }
@@ -23,6 +23,7 @@ public class Slot : UI{
 
   public GameObject skill;
   public void Dismiss(){
+    option = null;
     icon.sprite = panel.empty;
     GameObject.Destroy(skill);
   }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class Death : Behavioural{
 
   public GameObject soul;
-  bool died;
+  public bool died;
   void OnEnable(){
     died = false;
     soul.SetActive(true);

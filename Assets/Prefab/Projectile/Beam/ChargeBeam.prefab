@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  penetrate: 1
+  isBeam: 1
   onHitEffect: 13
   duration: 1
   frequency: 10

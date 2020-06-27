@@ -22,18 +22,12 @@ public class Ability : UI{
   }
 
   public void SetChangeButtons(bool active){
-    Loop(slots.Length, i => {
-      Slot slot = slots[i];
-      slot.change.gameObject.SetActive(active);
-    });
+    Loop(slots.Length, i => { slots[i].change.gameObject.SetActive(active); });
   }
 
   public void SetSlots(bool active){
     SetChangeButtons(active);
-    Loop(slots.Length, i => {
-      Slot slot = slots[i];
-      slot.SetActive(active);
-    });
+    Loop(slots.Length, i => { slots[i].SetActive(active); });
   }
 
 }

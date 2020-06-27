@@ -43,6 +43,7 @@ public class Player : Pilot{
   }
 
   public void UpdateCounterHeight(){
+    if(death.died){ return; }
     shieldCounter.newValue = shield.hitpoint.maxHp;
     energyCounter.newValue = energy.maxEnergy;
   }

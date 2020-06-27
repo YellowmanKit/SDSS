@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9172107835747935879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9172107835747935872}
+  - component: {fileID: 9172107835747935873}
+  - component: {fileID: 4101279445908487625}
+  m_Layer: 8
+  m_Name: AntimatterMissile
+  m_TagString: Earth
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9172107835747935872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172107835747935879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9172107835747935873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172107835747935879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31be982b09489af459bc6a38d2f82ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shotSpawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  onUseEffects: []
+  flashes: []
+  glows: []
+  alwaysUse: 1
+  cd: 0.5
+  randomCd: 0
+  delay: 0
+  cost: 2
+  useDelay: 0
+  nextUse: 0
+  freezeOnUse: 0
+  shootDelay: 0
+  bulletPerShot: 1
+  alertDuration: 0
+  alertName: 0
+  force: 400
+  damage: 50
+  bulletType: 16
+  isBeam: 0
+  recoils: []
+--- !u!114 &4101279445908487625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172107835747935879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc677017d156cb4e9a129e604d9e4b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usingShotSpawns: 0300000004000000
+  usingRecoils: 
+  skillButton: {fileID: 0}
+  cdIndicator: {fileID: 0}

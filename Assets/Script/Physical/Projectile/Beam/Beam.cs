@@ -18,10 +18,14 @@ public class Beam : Projectile{
   }
 
   void Update(){
-    transform.position = parent.position;
+    Attach();
     CheckIntersect();
     DealDamage();
     Shrink();
+  }
+
+  void Attach(){
+    if(parent){ transform.position = parent.position; }
   }
 
   public float shrinkIn;
@@ -53,9 +57,12 @@ public class Beam : Projectile{
       nextCheck = time + delta;
       foreach(Hitpoint hitpoint in hitting){
         hitpoint.TakeDamage(damage * delta / duration, HitPosition(hitpoint));
-        SpawnOnHitEffect(hitpoint);
+        SpawnOnHitEffect(HitPosition(hitpoint), false);
       }
     }
   }
+
+  protected override void AreaDamage(){}
+  protected override void Die(){}
 
 }

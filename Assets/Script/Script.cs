@@ -9,12 +9,12 @@ public abstract class Script : MonoBehaviour{
   protected Camera cam { get { return GameObject.FindWithTag("MainCamera").GetComponent<Camera>(); } }
   public CapsuleCollider capsule { get { return GetComponent<CapsuleCollider>(); } }
   protected BoxCollider box { get { return GetComponent<BoxCollider>(); } }
-  
+
   protected float time { get { return Time.timeSinceLevelLoad; } }
   protected float deltaTime { get { return Time.deltaTime; } }
 
   protected Vector2 boundary = new Vector2(20f, 40f);
-  protected bool IsOutOfBoundary(Vector2 position){ return Mathf.Abs(position.y) > boundary.y; }
+  protected bool OutY(float y, float maxY){ return Mathf.Abs(y) > maxY; }
 
   protected Center center;
   protected abstract void Init();

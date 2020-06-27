@@ -6,7 +6,9 @@ public class Stage : Control{
 
   public int stage;
   public bool started { get { return stage > 0; } }
+  public bool battling;
   public void NextStage(){
+    battling = true;
     ClosePenal();
     center.player.destination = center.player.transform.position;
     stage++;
@@ -21,6 +23,7 @@ public class Stage : Control{
   }
 
   public void StageCleared(){
+    battling = false;
     center.panel.next.Activate(true);
     center.panel.ability.SetChangeButtons(true);
     center.player.soul.shield.hitpoint.GainHp(float.MaxValue);

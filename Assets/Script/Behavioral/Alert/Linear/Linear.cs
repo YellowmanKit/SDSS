@@ -12,7 +12,7 @@ public class Linear : Alert{
 
   public float speed;
   void FixedUpdate(){
-    if(playing && !IsOutOfBoundary(transform.position)){
+    if(playing && !OutY(transform.position.y, boundary.y)){
       transform.Translate(new Vector3(0f, 0f, playing? speed * deltaTime: 0f));
     }else{
       playing = false;

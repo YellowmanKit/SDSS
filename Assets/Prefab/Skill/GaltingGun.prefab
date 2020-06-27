@@ -9906,7 +9906,7 @@ MonoBehaviour:
   cd: 0.1
   randomCd: 0
   delay: 0
-  cost: 5
+  cost: 2
   useDelay: 0
   nextUse: 0
   freezeOnUse: 0
@@ -9918,6 +9918,7 @@ MonoBehaviour:
   damage: 50
   bulletType: 2
   isBeam: 0
+  penetrate: 1
   recoils:
   - {fileID: 0}
   - {fileID: 0}
