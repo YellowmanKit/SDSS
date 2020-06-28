@@ -67,10 +67,10 @@ public class Gun : Active{
     beam.Fire(transform);
   }
 
-  public int penetrate;
+  public int penetration;
   void FireBullet(Bullet bullet){
     bullet.damage = damage;
-    bullet.penetrate = penetrate;
+    bullet.penetration = penetration;
     bullet.tag = go.tag;
     bullet.Fire(force);
   }

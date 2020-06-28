@@ -33,4 +33,11 @@ public class Slot : UI{
     cg.interactable = active;
   }
 
+  public GameObject energyAlert;
+  void Update(){
+    if(skill == null){ energyAlert.SetActive(false); return; }
+    Gun gun = skill.GetComponent<Gun>();
+    if(gun){ energyAlert.SetActive(center.player.energy.energy < gun.cost); return; }
+  }
+
 }

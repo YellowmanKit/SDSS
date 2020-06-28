@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Hitpoint : Behavioural{
 
+  public int penetrationCost;
   public float maxHp,hp;
   void OnEnable(){
     hp = maxHp;

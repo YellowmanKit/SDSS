@@ -14686,7 +14686,7 @@ MonoBehaviour:
   damage: 100
   bulletType: 5
   isBeam: 0
-  penetrate: 3
+  penetration: 3
   recoils:
   - {fileID: 0}
 --- !u!114 &3613353508503588266

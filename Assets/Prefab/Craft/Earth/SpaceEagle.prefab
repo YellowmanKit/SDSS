@@ -29134,6 +29134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 0
   maxHp: 0
   hp: 0
   canDie: 0
@@ -29251,6 +29252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 0
   maxHp: 0
   hp: 0
   canDie: 0
@@ -29402,6 +29404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 3
   maxHp: 100
   hp: 0
   canDie: 1
@@ -44250,6 +44253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 0
   maxHp: 0
   hp: 0
   canDie: 0
@@ -44518,6 +44522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 0
   maxHp: 0
   hp: 0
   canDie: 0
@@ -44649,6 +44654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 3
   maxHp: 100
   hp: 0
   canDie: 0

@@ -14546,6 +14546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 3
   maxHp: 50
   hp: 0
   canDie: 1
@@ -14666,6 +14667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 0
   maxHp: 0
   hp: 0
   canDie: 0
@@ -14768,6 +14770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 0
   maxHp: 0
   hp: 0
   canDie: 0
@@ -20863,7 +20866,7 @@ ParticleSystem:
     m_SpriteRenderer: {fileID: 0}
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
-    alignToDirection: 0
+    alignToDirection: 1
     m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
@@ -34654,7 +34657,7 @@ MonoBehaviour:
   damage: 50
   bulletType: 5
   isBeam: 0
-  penetrate: 3
+  penetration: 3
   recoils:
   - {fileID: 8322702931586246511}
 --- !u!1 &4882920872293305543
@@ -34734,6 +34737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 0
   maxHp: 0
   hp: 0
   canDie: 0
@@ -34993,6 +34997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  penetrationCost: 3
   maxHp: 100
   hp: 0
   canDie: 0
