@@ -9890,6 +9890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a06833b1e88c9d41b93cc3d83666127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   intensity: 100
   initIntensity: 0
   maxIntensity: 0
@@ -29134,6 +29135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   penetrationCost: 0
   maxHp: 0
   hp: 0
@@ -29167,6 +29169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 0
   directionMin: {x: -0.25, y: -0.25, z: -1}
   directionMax: {x: 0.25, y: 0.25, z: -1}
@@ -29252,6 +29255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   penetrationCost: 0
   maxHp: 0
   hp: 0
@@ -29271,6 +29275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 0
   directionMin: {x: -1, y: -0.25, z: -0.25}
   directionMax: {x: -1, y: 0.25, z: 0.25}
@@ -29290,6 +29295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de1be88a26916f4595cf978037ce7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   deltaPosition: {x: 0, y: 0, z: -0.25}
   tension: 5
 --- !u!1 &2148147795433880218
@@ -29373,6 +29379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e8fd9acc44ceb4bba34bc99953f329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   destination: {x: 0, y: 0}
   brakeFactor: 6
   outputFactor: 2
@@ -29389,6 +29396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825c05c068d14f94abf3322720c447cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   thrust: 20000
   output: 0
   direction: {x: 0, y: 0}
@@ -29404,6 +29412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   penetrationCost: 3
   maxHp: 100
   hp: 0
@@ -29423,6 +29432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d9984d63fe74b41b80f05d50468ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   soul: {fileID: 8171519847196237972}
   died: 0
   explodes:
@@ -29448,6 +29458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27c728a43628664a837471c73cc2553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   maxEnergy: 100
   energy: 0
   regen: 0.1
@@ -34421,6 +34432,36 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &3724408471057222447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5074482884957868246}
+  m_Layer: 8
+  m_Name: 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5074482884957868246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3724408471057222447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1036013231246466292}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3730710026810524108
 GameObject:
   m_ObjectHideFlags: 0
@@ -34431,7 +34472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6856817533783294810}
   m_Layer: 8
-  m_Name: 1
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44186,6 +44227,7 @@ Transform:
   - {fileID: 2677996094333728558}
   - {fileID: 8486598900371364861}
   - {fileID: 6641999678958586329}
+  - {fileID: 5074482884957868246}
   m_Father: {fileID: 7816989226434675989}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44253,6 +44295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   penetrationCost: 0
   maxHp: 0
   hp: 0
@@ -44286,6 +44329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 0
   directionMin: {x: -0.25, y: -0.25, z: 1}
   directionMax: {x: 0.25, y: 0.25, z: 1}
@@ -44305,6 +44349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de1be88a26916f4595cf978037ce7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   deltaPosition: {x: 0, y: 0, z: -0.25}
   tension: 10
 --- !u!1 &5529876795582574623
@@ -44317,7 +44362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4148732611910671919}
   m_Layer: 8
-  m_Name: 2
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44430,6 +44475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e8f584c9cf3414eb45220c79978b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   rotation: {x: 0, y: -180, z: 0}
 --- !u!114 &1178089358270729972
 MonoBehaviour:
@@ -44443,6 +44489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbba357425ef743438a3c51d80b3467c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   explosion: {fileID: 6916522961137017111}
 --- !u!1 &5778318326192828851
 GameObject:
@@ -44522,6 +44569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   penetrationCost: 0
   maxHp: 0
   hp: 0
@@ -44541,6 +44589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 0
   directionMin: {x: 1, y: -0.25, z: -0.25}
   directionMax: {x: 1, y: 0.25, z: 0.25}
@@ -44560,6 +44609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de1be88a26916f4595cf978037ce7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   deltaPosition: {x: 0, y: 0, z: -0.25}
   tension: 5
 --- !u!1 &5819378830644264823
@@ -44639,6 +44689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4956c4df0ff352444ad74b49273d2132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   threshold: 0.3
   shieldEffect: {fileID: 7993320717180698784}
   isActive: 0
@@ -44654,6 +44705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   penetrationCost: 3
   maxHp: 100
   hp: 0
@@ -44671,7 +44723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6641999678958586329}
   m_Layer: 8
-  m_Name: 5
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49607,6 +49659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e8f584c9cf3414eb45220c79978b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   rotation: {x: 0, y: 0, z: -180}
 --- !u!114 &1815745936287346016
 MonoBehaviour:
@@ -49620,6 +49673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbba357425ef743438a3c51d80b3467c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   explosion: {fileID: 6765808382365452975}
 --- !u!1 &6390778451755935535
 GameObject:
@@ -54494,16 +54548,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec4b162932884c4391dcbdac9e3a0e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   shotSpawns:
   - {fileID: 6856817533783294810}
   - {fileID: 4148732611910671919}
   - {fileID: 2677996094333728558}
   - {fileID: 8486598900371364861}
   - {fileID: 6641999678958586329}
+  - {fileID: 5074482884957868246}
   recoils:
   - {fileID: 3519218989892344287}
   - {fileID: 5214823462429989138}
   - {fileID: 1592695557299511451}
+  floats:
+  - {fileID: 8525670315230877887}
+  - {fileID: 7716270216703889106}
+  - {fileID: 6178127812489682091}
+  - {fileID: 7974927149121538980}
 --- !u!1 &6740930501643097141
 GameObject:
   m_ObjectHideFlags: 0
@@ -54514,7 +54575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2677996094333728558}
   m_Layer: 8
-  m_Name: 3
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59403,6 +59464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e072779a6633241860471f196255ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   shield: {fileID: 8408900810780636024}
   skill: {fileID: 313662345}
 --- !u!1 &8240850976873587872
@@ -59415,7 +59477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8486598900371364861}
   m_Layer: 8
-  m_Name: 4
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64340,6 +64402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e8f584c9cf3414eb45220c79978b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   rotation: {x: 0, y: 180, z: 0}
 --- !u!114 &2216368312152133289
 MonoBehaviour:
@@ -64353,4 +64416,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbba357425ef743438a3c51d80b3467c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   explosion: {fileID: 854932486023552906}

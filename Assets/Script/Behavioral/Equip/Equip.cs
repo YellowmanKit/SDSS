@@ -7,18 +7,18 @@ public class Equip : Behavioural{
   public int[] usingShotSpawns, usingRecoils;
   public Button skillButton;
 
-  Gun gun { get { return GetComponent<Gun>(); } }
+  Launcher launcher { get { return GetComponent<Launcher>(); } }
   public void Set(){
-    if(gun){
-      Loop(usingShotSpawns.Length, i => { gun.shotSpawns[i] = center.player.body.shotSpawns[usingShotSpawns[i]]; });
-      Loop(usingRecoils.Length, i => { gun.recoils[i] = center.player.body.recoils[usingRecoils[i]]; });
-      skillButton.onClick.AddListener(gun.ActivelyUse);
+    if(launcher){
+      Loop(usingShotSpawns.Length, i => { launcher.shotSpawns[i] = center.player.body.shotSpawns[usingShotSpawns[i]]; });
+      Loop(usingRecoils.Length, i => { launcher.recoils[i] = center.player.body.recoils[usingRecoils[i]]; });
+      skillButton.onClick.AddListener(launcher.ActivelyUse);
     }
   }
 
   public Image cdIndicator;
   void Update(){
-    if(gun){ cdIndicator.fillAmount = (gun.nextUse - time) / gun.cd; }
+    if(launcher){ cdIndicator.fillAmount = (launcher.nextUse - time) / launcher.cd; }
   }
 
 }

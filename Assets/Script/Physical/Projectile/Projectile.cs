@@ -3,12 +3,14 @@ using UnityEngine;
 
 public abstract class Projectile : Physical{
 
-  public float damage;
+  public float damage, penetration;
+  protected float penetrationQuota;
 
   protected abstract void OnHit(Hitpoint hitpoint);
   public bool isBeam;
   void OnTriggerEnter(Collider other){
     Hitpoint hitpoint = other.GetComponent<Hitpoint>();
+    if(!hitpoint){ return; }
     if(!isBeam && hitpoint.shielded){ return; }
     Hit(hitpoint);
   }
@@ -24,7 +26,6 @@ public abstract class Projectile : Physical{
   public void Explode(){
     SpawnOnHitEffect(transform.position, false);
     AreaDamage();
-    Die();
   }
 
   protected abstract Vector3 HitPosition(Hitpoint hitpoint);

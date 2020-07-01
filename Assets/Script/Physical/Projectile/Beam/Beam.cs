@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Beam : Projectile{
+
+  protected override void Init(){
+    beam.useWorldSpace = true;
+  }
 
   public float duration, frequency, width;
   Transform parent;
@@ -12,20 +17,17 @@ public class Beam : Projectile{
     GetComponent<Expire>().duration = duration;
   }
 
-  List<Hitpoint> hitting = new List<Hitpoint>();
+  public List<Hitpoint> hitting = new List<Hitpoint>();
   protected override void OnHit(Hitpoint hitpoint){
-    hitting.Add(hitpoint);
+    if(!hitting.Contains(hitpoint)){ hitting.Add(hitpoint); }
   }
 
   void Update(){
-    Attach();
+    if(parent){ transform.position = parent.position; }
     CheckIntersect();
     DealDamage();
     Shrink();
-  }
-
-  void Attach(){
-    if(parent){ transform.position = parent.position; }
+    RenderBeam();
   }
 
   public float shrinkIn;
@@ -51,15 +53,33 @@ public class Beam : Projectile{
     target.y + hitpoint.capsule.height * (transform.position.y >target.y? 1f: -1f) / 2f,
     0f);
   }
+
+  float decay { get { return box.size.x / width; } }
+  float endY;
   void DealDamage(){
     if(time > nextCheck){
+      penetrationQuota = penetration * decay;
       float delta = 1f / frequency;
       nextCheck = time + delta;
-      foreach(Hitpoint hitpoint in hitting){
-        hitpoint.TakeDamage(damage * delta / duration, HitPosition(hitpoint));
-        SpawnOnHitEffect(HitPosition(hitpoint), false);
+      var sortedHitting = hitting.OrderBy(hitpoint => (hitpoint.transform.position - transform.position).magnitude);
+      foreach(Hitpoint hitpoint in sortedHitting){
+        if(hitting.IndexOf(hitpoint) == 0 || penetrationQuota >= hitpoint.penetrationCost){
+          penetrationQuota -= hitpoint.penetrationCost;
+          hitpoint.TakeDamage(damage * delta / duration, HitPosition(hitpoint));
+          SpawnOnHitEffect(HitPosition(hitpoint), false);
+          endY = hitpoint.transform.position.y;
+        }else{ return; }
       }
+      endY = (transform.position + transform.TransformPoint(Vector3.forward * 5f)).y;
     }
+  }
+
+  LineRenderer beam { get { return GetComponentInChildren<LineRenderer>(); } }
+  void RenderBeam(){
+    float currectWidth = box.size.x;
+    beam.widthCurve = AnimationCurve.Linear(0, currectWidth, 1, currectWidth);
+    beam.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 0f));
+    beam.SetPosition(1, new Vector3(transform.position.x, endY, 0f));
   }
 
   protected override void AreaDamage(){}

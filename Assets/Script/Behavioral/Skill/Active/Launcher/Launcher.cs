@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class Gun : Active{
+public class Launcher : Active{
 
   protected override bool shouldUse { get {
     return ((alwaysUse && center.stage.battling) ||
-    center.HasEnemyInLine(transform.position, go.tag, true)) && !center.stage.gameOvered; } }
+    (autoUse && center.HasEnemyInLine(transform.position, go.tag, true)) && !center.stage.gameOvered); } }
 
   public float shootDelay;
   public int bulletPerShot;
@@ -45,29 +45,28 @@ public class Gun : Active{
 
   public float force;
   public int damage;
-  public Spawnable bulletType;
-  public bool isBeam;
+  public Spawnable projectileType;
+  public bool isBeam, isPulse;
   void Fire(){
     if(flashes.Length > shotCount){
       flashes[shotCount].Emit();
     }
     Transform shotSpawn = shotSpawns[shotCount];
     shotCount = (shotCount + 1) % shotSpawns.Length;
-    GameObject projectile = center.pool.Spawn(bulletType, shotSpawn.position, shotSpawn.rotation);
-    projectile.layer = go.layer + 2;
-    if(isBeam){
-      FireBeam(projectile.GetComponent<Beam>());
-    }else{
-      FireBullet(projectile.GetComponent<Bullet>());
-    }
+    GameObject projectile = center.pool.Spawn(projectileType, shotSpawn.position, shotSpawn.rotation);
+    projectile.layer = go.layer + (isPulse? 4: 2);
+    if(isBeam){ FireBeam(projectile.GetComponent<Beam>(), shotSpawn);
+    }else if(isPulse){
+    }else{ FireBullet(projectile.GetComponent<Bullet>()); }
   }
 
-  void FireBeam(Beam beam){
+  void FireBeam(Beam beam, Transform source){
     beam.damage = damage;
-    beam.Fire(transform);
+    beam.penetration = penetration;
+    beam.Fire(source);
   }
 
-  public int penetration;
+  public float penetration;
   void FireBullet(Bullet bullet){
     bullet.damage = damage;
     bullet.penetration = penetration;

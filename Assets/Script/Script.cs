@@ -9,6 +9,7 @@ public abstract class Script : MonoBehaviour{
   protected Camera cam { get { return GameObject.FindWithTag("MainCamera").GetComponent<Camera>(); } }
   public CapsuleCollider capsule { get { return GetComponent<CapsuleCollider>(); } }
   protected BoxCollider box { get { return GetComponent<BoxCollider>(); } }
+  protected SphereCollider sphere { get { return GetComponent<SphereCollider>(); } }
 
   protected float time { get { return Time.timeSinceLevelLoad; } }
   protected float deltaTime { get { return Time.deltaTime; } }
@@ -18,8 +19,8 @@ public abstract class Script : MonoBehaviour{
 
   protected Center center;
   protected abstract void Init();
-  protected bool initialized;
-  void Awake(){
+  public bool initialized;
+  public void Awake(){
     center = GameObject.FindWithTag("Center").GetComponent<Center>();
     Init();
     initialized = true;

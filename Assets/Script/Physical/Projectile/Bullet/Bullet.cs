@@ -6,8 +6,6 @@ public class Bullet : Projectile{
 
   protected override Vector3 HitPosition(Hitpoint hitpoint){ return transform.position; }
 
-  public int penetration;
-  int penetrationQuota;
   public void Fire(float force){
     penetrationQuota = penetration;
     rb.AddForce(transform.forward * force, ForceMode.Impulse);
@@ -17,28 +15,25 @@ public class Bullet : Projectile{
 
   protected override void OnHit(Hitpoint hitpoint){
     hitpoint.TakeDamage(damage, transform.position);
-    AreaDamage();
-    if(penetrationQuota > 0 && penetrationQuota >= hitpoint.penetrationCost){
+    if(penetrationQuota > 0f && penetrationQuota >= hitpoint.penetrationCost){
       penetrationQuota -= hitpoint.penetrationCost;
-    }else{ Die(); }
+    }else{ AreaDamage(); }
   }
 
-  public float damageRadius, effectiveness;
+  public Area area;
   protected override void AreaDamage(){
-    if(damageRadius == 0f){ return; }
-    List<GameObject> opponents = new List<GameObject>(center.GetOpponents(go.tag.ToString()));
-    foreach(GameObject opponent in opponents){
-      Hitpoint hitpoint = opponent.GetComponent<Hitpoint>().effectiveHitpoint;
-      float distance = (hitpoint.transform.position - transform.position).magnitude;
-      if(distance <= damageRadius){
-        hitpoint.TakeDamage(damage * effectiveness * distance / damageRadius, transform.position);
-      }
-    }
+    if(area){ area.DealDamage(damage); }
+    Die();
   }
 
   protected override void Die(){
     rb.velocity = Vector3.zero;
     go.SetActive(false);
+  }
+
+  public void HittedByPulse(Vector3 sourcePosition){
+    SpawnOnHitEffect(transform.position, false);
+    Die();
   }
 
 }

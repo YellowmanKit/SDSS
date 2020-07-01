@@ -36,8 +36,8 @@ public class Slot : UI{
   public GameObject energyAlert;
   void Update(){
     if(skill == null){ energyAlert.SetActive(false); return; }
-    Gun gun = skill.GetComponent<Gun>();
-    if(gun){ energyAlert.SetActive(center.player.energy.energy < gun.cost); return; }
+    Launcher launcher = skill.GetComponent<Launcher>();
+    if(launcher){ energyAlert.SetActive(center.player.energy.energy < launcher.cost); return; }
   }
 
 }

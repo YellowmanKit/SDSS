@@ -43,9 +43,8 @@ public class Orb : Behavioural{
   void GrantShield(Collider other){
     if(shieldValue == 0f){ return; }
     Hitpoint hitpoint = other.transform.GetComponentInChildren<Hitpoint>();
-    if(!hitpoint.shield){
-      hitpoint = hitpoint.under;
-    }
+    if(!hitpoint.shield){ hitpoint = hitpoint.under; }
+    if(!hitpoint){ return; }
     hitpoint.GainHp(hitpoint.maxHp * shieldValue);
     hitpoint.maxHp = hitpoint.maxHp + maxShieldValue;
     hitpoint.shield.Hitted(true, transform.position);

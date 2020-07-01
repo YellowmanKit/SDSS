@@ -8,6 +8,8 @@ public class Center : Control{
   public List<GameObject> aliens;
   public List<GameObject> earths;
   public List<GameObject> GetOpponents(string side){ if(side == "Alien"){ return earths; } return aliens; }
+  public List<Rigidbody> floats;
+
   public Pool pool;
   public Stage stage;
   public Panel panel;
@@ -35,6 +37,7 @@ public class Center : Control{
 
   public void AlienSpawned(GameObject alien){
     aliens.Add(alien);
+    floats.AddRange(alien.GetComponent<Alien>().body.floats);
   }
 
   public void AlienDied(GameObject alien){
@@ -46,6 +49,7 @@ public class Center : Control{
 
   public void EarthSpawned(GameObject earth){
     earths.Add(earth);
+    //floats.AddRange(earth.GetComponent<Earth>().body.floats);
   }
 
   public void EarthDied(GameObject earth){

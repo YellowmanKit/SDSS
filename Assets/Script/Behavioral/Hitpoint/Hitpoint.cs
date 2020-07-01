@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Hitpoint : Behavioural{
 
-  public int penetrationCost;
-  public float maxHp,hp;
+  public float maxHp, hp, penetrationCost;
   void OnEnable(){
     hp = maxHp;
   }
@@ -36,6 +35,10 @@ public class Hitpoint : Behavioural{
 
   void Update(){
     Regenerate();
+  }
+
+  public void HittedByPulse(Vector3 sourcePosition){
+    if(shield){ shield.Hitted(true, sourcePosition); }
   }
 
 }

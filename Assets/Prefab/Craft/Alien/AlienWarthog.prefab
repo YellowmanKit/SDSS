@@ -9580,6 +9580,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3795123070405363593}
+  - component: {fileID: 1627121987227203423}
   m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
@@ -9607,6 +9608,27 @@ Transform:
   m_Father: {fileID: 1315262329974400954}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1627121987227203423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193920706354514995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ec4b162932884c4391dcbdac9e3a0e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialized: 0
+  shotSpawns:
+  - {fileID: 3893833559480612921}
+  recoils:
+  - {fileID: 8322702931586246511}
+  floats:
+  - {fileID: 2066190553819658384}
+  - {fileID: 8477484956844504556}
+  - {fileID: 6064138260681284410}
 --- !u!1 &533168434434285992
 GameObject:
   m_ObjectHideFlags: 0
@@ -14511,7 +14533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70461fe2656336849ab081bf1f1670c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 4.9712076, y: 20.64491}
+  initialized: 0
+  destination: {x: 0, y: 0}
   brakeFactor: 2
   outputFactor: 0.5
   prepare: 2
@@ -14531,6 +14554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825c05c068d14f94abf3322720c447cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   thrust: 3000
   output: 0
   direction: {x: 0, y: 0}
@@ -14546,9 +14570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  penetrationCost: 3
+  initialized: 0
   maxHp: 50
   hp: 0
+  penetrationCost: 1
   canDie: 1
   shield: {fileID: 0}
   under: {fileID: 863459772106408162}
@@ -14565,6 +14590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d9984d63fe74b41b80f05d50468ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   soul: {fileID: 1751327448215771654}
   died: 0
   explodes:
@@ -14587,6 +14613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27c728a43628664a837471c73cc2553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   maxEnergy: 100
   energy: 0
   regen: 0.1
@@ -14667,9 +14694,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  penetrationCost: 0
+  initialized: 0
   maxHp: 0
   hp: 0
+  penetrationCost: 0
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
@@ -14686,6 +14714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 0
   directionMin: {x: 0, y: 0, z: -1}
   directionMax: {x: 0, y: 0, z: -1}
@@ -14770,9 +14799,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  penetrationCost: 0
+  initialized: 0
   maxHp: 0
   hp: 0
+  penetrationCost: 0
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
@@ -14789,6 +14819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 0
   directionMin: {x: 1, y: -0.5, z: -0.5}
   directionMax: {x: 1, y: 0.5, z: 0.5}
@@ -14805,6 +14836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1038359350490230060}
+  - component: {fileID: 7983687950791496499}
   m_Layer: 9
   m_Name: Soul
   m_TagString: Untagged
@@ -14829,6 +14861,21 @@ Transform:
   m_Father: {fileID: 1315262329974400954}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7983687950791496499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751327448215771654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e072779a6633241860471f196255ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialized: 0
+  shield: {fileID: 4153514724370087856}
+  skill: {fileID: 106881242}
 --- !u!1 &1784937793207710294
 GameObject:
   m_ObjectHideFlags: 0
@@ -14923,6 +14970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e8f584c9cf3414eb45220c79978b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   rotation: {x: 0, y: 0, z: 180}
 --- !u!114 &1455187720325428339
 MonoBehaviour:
@@ -14936,6 +14984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbba357425ef743438a3c51d80b3467c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   explosion: {fileID: 5047155571215336776}
 --- !u!114 &8322702931586246511
 MonoBehaviour:
@@ -14949,6 +14998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de1be88a26916f4595cf978037ce7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   deltaPosition: {x: 0, y: 0, z: -0.25}
   tension: 3
 --- !u!1 &2005722416536568094
@@ -19956,6 +20006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a06833b1e88c9d41b93cc3d83666127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   intensity: 0
   initIntensity: 0
   maxIntensity: 100
@@ -20002,7 +20053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3893833559480612921}
   m_Layer: 9
-  m_Name: 1
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20127,6 +20178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a06833b1e88c9d41b93cc3d83666127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   intensity: 100
   initIntensity: 0
   maxIntensity: 0
@@ -30337,8 +30389,8 @@ ParticleSystem:
     startRotationY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.7453293
-      minScalar: 1.3962634
+      scalar: 1.3962634
+      minScalar: 1.7453293
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -34633,6 +34685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31be982b09489af459bc6a38d2f82ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   shotSpawns:
   - {fileID: 3893833559480612921}
   onUseEffects:
@@ -34642,21 +34695,23 @@ MonoBehaviour:
   glows:
   - {fileID: 2516740865301191014}
   alwaysUse: 1
+  autoUse: 0
   cd: 6
   randomCd: 0.5
   delay: 0
   cost: 50
   useDelay: 1
   nextUse: 0
-  freezeOnUse: 2
+  stopOnUse: 1
   shootDelay: 0.1
   bulletPerShot: 3
   alertDuration: 1
   alertName: 7
-  force: 150
+  force: 125
   damage: 50
-  bulletType: 5
+  projectileType: 5
   isBeam: 0
+  isPulse: 0
   penetration: 3
   recoils:
   - {fileID: 8322702931586246511}
@@ -34737,9 +34792,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  penetrationCost: 0
+  initialized: 0
   maxHp: 0
   hp: 0
+  penetrationCost: 0
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
@@ -34756,6 +34812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 0
   directionMin: {x: -1, y: -0.5, z: -0.5}
   directionMax: {x: -1, y: 0.5, z: 0.5}
@@ -34900,6 +34957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a06833b1e88c9d41b93cc3d83666127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   intensity: 100
   initIntensity: 0
   maxIntensity: 0
@@ -34982,6 +35040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4956c4df0ff352444ad74b49273d2132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   threshold: 0.3
   shieldEffect: {fileID: 2111698533200277651}
   isActive: 0
@@ -34997,9 +35056,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe1eead186405842bfc2c748fee5c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  penetrationCost: 3
+  initialized: 0
   maxHp: 100
   hp: 0
+  penetrationCost: 1
   canDie: 0
   shield: {fileID: 4153514724370087856}
   under: {fileID: 0}

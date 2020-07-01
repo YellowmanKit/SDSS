@@ -17,7 +17,7 @@ public class Option : UI{
     if(!equiped && selected){
       ability.slot.Assign(this);
       EquipSkill();
-    }else if(equiped && !selected){
+    }else if(!selected){
       equiped = false;
       ability.slot.Dismiss();
     }

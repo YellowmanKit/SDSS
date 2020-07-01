@@ -25,6 +25,7 @@ public class Select : UI{
   public void SetOptions(bool active){
     Loop(options.childCount, i => {
       Option option = options.GetChild(i).GetComponent<Option>();
+      if(!option.initialized){ option.Awake(); }
       options.GetChild(i).GetComponent<Option>().OnSelect(active);
     });
   }
