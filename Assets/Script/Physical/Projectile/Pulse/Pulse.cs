@@ -17,7 +17,11 @@ public class Pulse : Projectile{
   }
 
   void OnTriggerEnter(Collider other){
-    other.BroadcastMessage("HittedByPulse", transform.position);
+    Bullet bullet = other.GetComponent<Bullet>();
+    if(bullet){ bullet.HittedByPulse(transform.position); return; }
+    Hitpoint hitpoint = other.GetComponent<Hitpoint>();
+    if(hitpoint){ hitpoint.HittedByPulse(transform.position); }
+
   }
 
   protected override Vector3 HitPosition(Hitpoint hitpoint){ return hitpoint.transform.position; }

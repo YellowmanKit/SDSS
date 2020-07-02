@@ -8,7 +8,7 @@ public class Option : UI{
   public bool equiped;
   public void OnToggle(){
     bool active = !equiped;
-    select.SetOptions(false);
+    optionBar.SetOptions(false);
     OnSelect(active);
   }
 

@@ -127,7 +127,7 @@ LineRenderer:
     shadowBias: 0
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 1
+  m_Loop: 0
 --- !u!1 &5592886830284944607
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +214,7 @@ MonoBehaviour:
   width: 1
   hitting: []
   shrinkIn: 1
+  onHitEffect2: 19
 --- !u!114 &860358525532300157
 MonoBehaviour:
   m_ObjectHideFlags: 0

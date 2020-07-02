@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class Beam : Projectile{
 
-  protected override void Init(){
-    beam.useWorldSpace = true;
-  }
-
   public float duration, frequency, width;
   Transform parent;
   public void Fire(Transform source){
@@ -56,21 +52,30 @@ public class Beam : Projectile{
 
   float decay { get { return box.size.x / width; } }
   float endY;
+  public Spawnable onHitEffect2;
   void DealDamage(){
     if(time > nextCheck){
       penetrationQuota = penetration * decay;
       float delta = 1f / frequency;
       nextCheck = time + delta;
       var sortedHitting = hitting.OrderBy(hitpoint => (hitpoint.transform.position - transform.position).magnitude);
+      int count = 0;
+      Vector3 blockedPosition = Vector3.zero;
       foreach(Hitpoint hitpoint in sortedHitting){
-        if(hitting.IndexOf(hitpoint) == 0 || penetrationQuota >= hitpoint.penetrationCost){
+        if(hitpoint.shielded){ continue; }
+        if(count == 0 || penetrationQuota >= hitpoint.penetrationCost){
           penetrationQuota -= hitpoint.penetrationCost;
           hitpoint.TakeDamage(damage * delta / duration, HitPosition(hitpoint));
           SpawnOnHitEffect(HitPosition(hitpoint), false);
-          endY = hitpoint.transform.position.y;
-        }else{ return; }
+          blockedPosition = HitPosition(hitpoint);
+          endY = blockedPosition.y;
+          count++;
+        }else{
+          center.pool.Spawn(onHitEffect2, blockedPosition, transform.rotation);
+          return;
+        }
       }
-      endY = (transform.position + transform.TransformPoint(Vector3.forward * 5f)).y;
+      endY = (transform.position + transform.TransformPoint(Vector3.forward * 100f)).y;
     }
   }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Select : UI{
 
@@ -12,22 +13,14 @@ public class Select : UI{
   public void Open(Slot slot){
     select.gameObject.SetActive(true);
     Option option = slot.option;
-    SetOptions(false);
+    optionBar.SetOptions(false);
     if(option != null){ option.OnSelect(true); }
+    categoryBar.Select(slot.defaultCategory);
   }
 
   public void OnConfirmChange(){
     go.SetActive(false);
     ability.SetSlots(true);
-  }
-
-  Transform options { get { return transform.GetChild(0); } }
-  public void SetOptions(bool active){
-    Loop(options.childCount, i => {
-      Option option = options.GetChild(i).GetComponent<Option>();
-      if(!option.initialized){ option.Awake(); }
-      options.GetChild(i).GetComponent<Option>().OnSelect(active);
-    });
   }
 
 }
