@@ -7,7 +7,7 @@ public class Bullet : Projectile{
   protected override Vector3 HitPosition(Hitpoint hitpoint){ return transform.position; }
 
   public void Fire(float force){
-    penetrationQuota = penetration;
+    quota = penetration;
     rb.AddForce(transform.forward * force, ForceMode.Impulse);
   }
 
@@ -15,8 +15,8 @@ public class Bullet : Projectile{
 
   protected override void OnHit(Hitpoint hitpoint){
     hitpoint.TakeDamage(damage, transform.position);
-    if(penetrationQuota > 0f && penetrationQuota >= hitpoint.penetrationCost){
-      penetrationQuota -= hitpoint.penetrationCost;
+    if(quota > 0f && quota >= hitpoint.penetrationCost){
+      quota -= hitpoint.penetrationCost;
     }else{ AreaDamage(); }
   }
 

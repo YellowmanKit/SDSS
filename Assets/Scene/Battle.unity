@@ -492,10 +492,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
+  category: 1
   icon: {fileID: 1159643224}
   equiped: 0
-  skillPrefab: {fileID: 6665861537712923714, guid: e37cacf923cd7a444b9ed6086ab67da1,
-    type: 3}
+  equipment: 3
 --- !u!1 &110804403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
-  defaultCategory: 0
+  category: 1
   icon: {fileID: 1966330515}
   cd: {fileID: 1795636655}
   change: {fileID: 1478479562}
@@ -1981,7 +1981,7 @@ GameObject:
   - component: {fileID: 550934835}
   - component: {fileID: 550934836}
   m_Layer: 5
-  m_Name: OptionBar
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2057,6 +2057,13 @@ MonoBehaviour:
   - {fileID: 986585925}
   - {fileID: 1332048364}
   - {fileID: 1515760369}
+  equipments:
+  - {fileID: 9172107835747935879, guid: f95908caea1935b45a7fa11c9eaf67d1, type: 3}
+  - {fileID: 6327272773922644265, guid: 362f7d4ec083e56458899adce9a07f60, type: 3}
+  - {fileID: 6665861537712923714, guid: e37cacf923cd7a444b9ed6086ab67da1, type: 3}
+  - {fileID: 8008098158308562869, guid: 4c779f3f64415994cb0493f5836e5b2f, type: 3}
+  - {fileID: 2021611689669774410, guid: 064ff4798efaf3f4f99b923a88be8ba7, type: 3}
+  - {fileID: 1989227291096671472, guid: 88e39ad3cbc46414ea0032b9b7c5320f, type: 3}
 --- !u!1 &552460549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3380,7 +3387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
-  defaultCategory: 0
+  category: 1
   icon: {fileID: 523762875}
   cd: {fileID: 1305370458}
   change: {fileID: 1084858956}
@@ -3831,10 +3838,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
+  category: 1
   icon: {fileID: 381988182}
   equiped: 0
-  skillPrefab: {fileID: 9172107835747935879, guid: f95908caea1935b45a7fa11c9eaf67d1,
-    type: 3}
+  equipment: 1
 --- !u!225 &967261805
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4081,10 +4088,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
+  category: 1
   icon: {fileID: 1501037584}
   equiped: 0
-  skillPrefab: {fileID: 8008098158308562869, guid: 4c779f3f64415994cb0493f5836e5b2f,
-    type: 3}
+  equipment: 4
 --- !u!225 &986585926
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5223,7 +5230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
-  defaultCategory: 1
+  category: 2
   icon: {fileID: 481780917}
   cd: {fileID: 9550214}
   change: {fileID: 210701872}
@@ -5607,10 +5614,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
+  category: 1
   icon: {fileID: 2089313749}
   equiped: 0
-  skillPrefab: {fileID: 2021611689669774410, guid: 064ff4798efaf3f4f99b923a88be8ba7,
-    type: 3}
+  equipment: 5
 --- !u!225 &1332048366
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6207,10 +6214,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
+  category: 2
   icon: {fileID: 1597473673}
   equiped: 0
-  skillPrefab: {fileID: 1989227291096671472, guid: 88e39ad3cbc46414ea0032b9b7c5320f,
-    type: 3}
+  equipment: 6
 --- !u!225 &1515760370
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6610,10 +6617,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
+  category: 1
   icon: {fileID: 2026936575}
   equiped: 0
-  skillPrefab: {fileID: 6327272773922644265, guid: 362f7d4ec083e56458899adce9a07f60,
-    type: 3}
+  equipment: 2
 --- !u!225 &1634440135
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7024,7 +7031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
-  defaultCategory: 0
+  category: 1
   icon: {fileID: 922716593}
   cd: {fileID: 2130212640}
   change: {fileID: 1971900940}
@@ -7163,7 +7170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
-  defaultCategory: 0
+  category: 1
   icon: {fileID: 177802175}
   cd: {fileID: 4727128}
   change: {fileID: 1959497191}
@@ -7956,7 +7963,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8253,7 +8260,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -8319,7 +8326,7 @@ GameObject:
   - component: {fileID: 2069445700}
   - component: {fileID: 2069445701}
   m_Layer: 5
-  m_Name: CategoryBar
+  m_Name: Navigator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8387,7 +8394,7 @@ MonoBehaviour:
   categories:
   - {fileID: 2031764033}
   - {fileID: 2002045212}
-  selectedCategory: 0
+  selected: 0
 --- !u!1 &2089313747
 GameObject:
   m_ObjectHideFlags: 0

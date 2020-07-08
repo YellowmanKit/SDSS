@@ -13,9 +13,9 @@ public class Select : UI{
   public void Open(Slot slot){
     select.gameObject.SetActive(true);
     Option option = slot.option;
-    optionBar.SetOptions(false);
+    menu.SetOptions(false);
     if(option != null){ option.OnSelect(true); }
-    categoryBar.Select(slot.defaultCategory);
+    navigator.Select(slot.option? slot.option.category: slot.category);
   }
 
   public void OnConfirmChange(){

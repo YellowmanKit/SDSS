@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Slot : UI{
 
-  public Category defaultCategory;
+  public Category category;
   public Image icon, cd;
   public Button change;
   public Button skillButton { get { return GetComponent<Button>(); } }

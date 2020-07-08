@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Option : UI{
 
+  public Category category;
   public Image icon;
   public bool equiped;
   public void OnToggle(){
     bool active = !equiped;
-    optionBar.SetOptions(false);
+    menu.SetOptions(false);
     OnSelect(active);
   }
 
@@ -23,9 +24,9 @@ public class Option : UI{
     }
   }
 
-  public GameObject skillPrefab;
+  public Equipment equipment;
   void EquipSkill(){
-    ability.slot.skill = Instantiate(skillPrefab, center.player.soul.skill);
+    ability.slot.skill = Instantiate(menu.equipments[(int)equipment - 1], center.player.soul.skill);
     Equip equip = ability.slot.skill.GetComponent<Equip>();
     equip.cdIndicator = ability.slot.cd;
     equip.skillButton = ability.slot.skillButton;

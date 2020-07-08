@@ -17,7 +17,7 @@ public class Death : Behavioural{
   public Float[] floats;
   void SetFloats(){ foreach(Float floater in floats){ floater.Detach(); } }
 
-  float decay = 3f;
+  public float decay;
   float decayTime = float.MaxValue;
   public Flash flash;
   public void Die(){

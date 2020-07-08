@@ -55,7 +55,7 @@ public class Beam : Projectile{
   public Spawnable onHitEffect2;
   void DealDamage(){
     if(time > nextCheck){
-      penetrationQuota = penetration * decay;
+      quota = penetration * decay;
       float delta = 1f / frequency;
       nextCheck = time + delta;
       var sortedHitting = hitting.OrderBy(hitpoint => (hitpoint.transform.position - transform.position).magnitude);
@@ -63,8 +63,8 @@ public class Beam : Projectile{
       Vector3 blockedPosition = Vector3.zero;
       foreach(Hitpoint hitpoint in sortedHitting){
         if(hitpoint.shielded){ continue; }
-        if(count == 0 || penetrationQuota >= hitpoint.penetrationCost){
-          penetrationQuota -= hitpoint.penetrationCost;
+        if(count == 0 || quota >= hitpoint.penetrationCost){
+          quota -= hitpoint.penetrationCost;
           hitpoint.TakeDamage(damage * delta / duration, HitPosition(hitpoint));
           SpawnOnHitEffect(HitPosition(hitpoint), false);
           blockedPosition = HitPosition(hitpoint);

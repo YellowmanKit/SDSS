@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Projectile : Physical{
 
   public float damage, penetration;
-  protected float penetrationQuota;
+  protected float quota;
 
   protected abstract void OnHit(Hitpoint hitpoint);
   public bool isBeam;
