@@ -77,8 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0cd3e49298bfe4cbca6b97c4a43349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   targetScale: 0
   dropForce: 200
+  attractForce: 0.5
   onCollectEffect: 11
   shieldValue: 0
   energyValue: 0.3
@@ -96,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb4ae1b8504a0d45953aca55e9a387d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   noReset: 1
   directionMin: {x: -0.5, y: 0.5, z: 0}
   directionMax: {x: 0.5, y: 1, z: 0}

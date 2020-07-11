@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178408c9db670d947a225cdcf56483b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.25
+  initialized: 0
+  duration: 0.2
 --- !u!1 &5012662710083612511
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,7 +4872,7 @@ GameObject:
   - component: {fileID: 7964291541023235172}
   - component: {fileID: 5795214085744117164}
   m_Layer: 0
-  m_Name: OnHitEffect
+  m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9776,6 +9777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a06833b1e88c9d41b93cc3d83666127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialized: 0
   intensity: 100
   initIntensity: 100
   maxIntensity: 0

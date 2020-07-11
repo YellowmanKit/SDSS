@@ -18,6 +18,7 @@ public class Ability : UI{
   public void UnlockSlot(){
     if(nextSlot >= slots.Length){ return; }
     slots[nextSlot].gameObject.SetActive(true);
+    navigator.UnlockCategory(slots[nextSlot].category);
     nextSlot++;
   }
 

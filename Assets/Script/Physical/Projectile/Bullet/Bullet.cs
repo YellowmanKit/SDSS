@@ -14,9 +14,10 @@ public class Bullet : Projectile{
   void Update(){ if(OutY(transform.position.y, boundary.y * 1.25f)){ Die(); } }
 
   protected override void OnHit(Hitpoint hitpoint){
-    hitpoint.TakeDamage(damage, transform.position);
+    hitpoint.TakeDamage(damage * weaken, transform.position);
     if(quota > 0f && quota >= hitpoint.penetrationCost){
       quota -= hitpoint.penetrationCost;
+      rb.velocity = rb.velocity * Mathf.Clamp(weaken, 0.75f, 1f);
     }else{ AreaDamage(); }
   }
 

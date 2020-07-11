@@ -9918,14 +9918,16 @@ MonoBehaviour:
   bulletPerShot: 1
   alertDuration: 0
   alertName: 0
-  force: 300
+  force: 350
   damage: 50
   projectileType: 2
   isBeam: 0
+  isPulse: 0
   penetration: 1
   recoils:
   - {fileID: 0}
   - {fileID: 0}
+  recoil: 0
 --- !u!114 &1955284988596862732
 MonoBehaviour:
   m_ObjectHideFlags: 0

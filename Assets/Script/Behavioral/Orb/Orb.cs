@@ -9,9 +9,14 @@ public class Orb : Behavioural{
     SetOrb(true);
   }
 
-  public float dropForce;
+  public float dropForce, attractForce;
   void FixedUpdate(){
-    rb.AddForce(new Vector3(0f, -dropForce * deltaTime, 0f));
+    Vector3 delta = center.player.transform.position - transform.position;
+    Vector3 direction = delta.normalized;
+    float distance = delta.magnitude;
+    Vector3 attraction = direction * center.player.GetComponent<Rigidbody>().mass * attractForce / distance;
+    Vector3 drop = new Vector3(0f, -dropForce * deltaTime, 0f);
+    rb.AddForce(attraction + drop);
   }
 
   public Spawnable onCollectEffect;

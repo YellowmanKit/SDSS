@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public enum Category{
   None,
   Auto,
+  Burst,
   Guard
 }
 
@@ -19,5 +20,7 @@ public class Navigator : UI{
   }
 
   public void Select(int index){ Select((Category)index); }
+
+  public void UnlockCategory(Category category){ categories[(int)category - 1].gameObject.SetActive(true); }
 
 }

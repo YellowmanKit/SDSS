@@ -4,6 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class Stage : Control{
 
+  public GameObject dummy;
+  public bool spawnDummy;
+  protected override void Init(){
+    if(spawnDummy){
+      dummy.SetActive(true);
+      center.aliens.Add(dummy);
+    }
+  }
+
   public int stage;
   public bool started { get { return stage > 0; } }
   public bool battling;
@@ -26,8 +35,8 @@ public class Stage : Control{
     battling = false;
     center.panel.next.Activate(true);
     center.panel.ability.SetChangeButtons(true);
-    center.player.soul.shield.hitpoint.GainHp(float.MaxValue);
-    center.player.energy.GainEnergy(float.MaxValue);
+    //center.player.soul.shield.hitpoint.GainHp(float.MaxValue);
+    //center.player.energy.GainEnergy(float.MaxValue);
     center.panel.ability.UnlockSlot();
   }
 

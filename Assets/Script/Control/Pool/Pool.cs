@@ -22,7 +22,9 @@ public enum Spawnable {
   AntimatterMissile,
   AntimatterMissileOnHit,
   ElectroMagneticPulse,
-  ChargeBeamOnHit2
+  ChargeBeamOnHit2,
+  GaussBullet,
+  GaussBulletOnHit
 }
 
 public class Pool : Control{

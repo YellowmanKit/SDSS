@@ -75,10 +75,10 @@ public class Launcher : Active{
   }
 
   public Recoil[] recoils;
+  public float recoil;
   void Recoil(){
-    if(recoils.Length > shotCount){
-      recoils[shotCount].RecoilIn();
-    }
+    if(recoils.Length > shotCount){ recoils[shotCount].RecoilIn(); }
+    GetComponentInParent<Rigidbody>().AddForce(Vector3.up * -recoil, ForceMode.Impulse);
   }
 
 }

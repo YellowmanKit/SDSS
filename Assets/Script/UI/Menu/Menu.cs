@@ -9,7 +9,8 @@ public enum Equipment{
   GatlingGun,
   ChargeBeam,
   PlasmaCannon,
-  ElectroMagnecticPulse
+  ElectroMagnecticPulse,
+  GaussCannon
 }
 
 public class Menu : UI{

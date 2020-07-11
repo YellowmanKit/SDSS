@@ -5,6 +5,7 @@ public abstract class Projectile : Physical{
 
   public float damage, penetration;
   protected float quota;
+  protected float weaken { get { return penetration > 0f? quota / penetration: 1f; }}
 
   protected abstract void OnHit(Hitpoint hitpoint);
   public bool isBeam;

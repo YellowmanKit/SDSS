@@ -65,7 +65,7 @@ public class Beam : Projectile{
         if(hitpoint.shielded){ continue; }
         if(count == 0 || quota >= hitpoint.penetrationCost){
           quota -= hitpoint.penetrationCost;
-          hitpoint.TakeDamage(damage * delta / duration, HitPosition(hitpoint));
+          hitpoint.TakeDamage(damage * weaken * delta / duration, HitPosition(hitpoint));
           SpawnOnHitEffect(HitPosition(hitpoint), false);
           blockedPosition = HitPosition(hitpoint);
           endY = blockedPosition.y;
