@@ -11,7 +11,8 @@ public class Bullet : Projectile{
     rb.AddForce(transform.forward * force, ForceMode.Impulse);
   }
 
-  void Update(){ if(OutY(transform.position.y, boundary.y * 1.25f)){ Die(); } }
+  public float outScale;
+  void Update(){ if(OutY(transform.position.y, boundary.y * outScale)){ Die(); } }
 
   protected override void OnHit(Hitpoint hitpoint){
     hitpoint.TakeDamage(damage * weaken, transform.position);

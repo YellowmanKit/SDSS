@@ -19,12 +19,15 @@ public enum Spawnable {
   ChargeBeamOnHit,
   PlasmaBullet,
   PlasmaBulletOnHit,
-  AntimatterMissile,
-  AntimatterMissileOnHit,
+  TrackMissile,
+  TrackMissileOnHit,
   ElectroMagneticPulse,
   ChargeBeamOnHit2,
   GaussBullet,
-  GaussBulletOnHit
+  GaussBulletOnHit,
+  UltraBeam,
+  UltraBeamOnHit,
+  UltraBeamOnHit2
 }
 
 public class Pool : Control{

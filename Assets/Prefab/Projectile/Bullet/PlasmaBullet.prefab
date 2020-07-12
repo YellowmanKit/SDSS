@@ -208,7 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialized: 0
   damage: 0
+  penetration: 0
   isBeam: 0
   onHitEffect: 15
-  penetration: 0
+  outScale: 1.25
   area: {fileID: 2578813199198901807}

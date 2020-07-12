@@ -13,9 +13,7 @@ public class Missile : Pilot{
     else { destination = new Vector3(transform.position.x, go.tag == "Alien"?-100f: 100f, 0f); }
   }
 
-  void OnDisable(){
-    tr.Clear();
-  }
+  void OnDisable(){ tr.Clear(); }
 
   Bullet bullet { get { return GetComponent<Bullet>(); } }
   void Update(){

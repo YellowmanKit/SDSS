@@ -4887,10 +4887,12 @@ MonoBehaviour:
   damage: 90
   projectileType: 14
   isBeam: 0
+  isPulse: 0
   penetration: 0
   recoils:
   - {fileID: 0}
   - {fileID: 0}
+  recoil: 1000
 --- !u!114 &6606008284319192836
 MonoBehaviour:
   m_ObjectHideFlags: 0

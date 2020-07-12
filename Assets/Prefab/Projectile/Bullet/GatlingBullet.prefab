@@ -81,6 +81,7 @@ MonoBehaviour:
   penetration: 0
   isBeam: 0
   onHitEffect: 3
+  outScale: 1.25
   area: {fileID: 0}
 --- !u!1 &1453002418602726546
 GameObject:

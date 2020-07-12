@@ -9927,7 +9927,7 @@ MonoBehaviour:
   recoils:
   - {fileID: 0}
   - {fileID: 0}
-  recoil: 0
+  recoil: 500
 --- !u!114 &1955284988596862732
 MonoBehaviour:
   m_ObjectHideFlags: 0

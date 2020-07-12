@@ -4,13 +4,14 @@ using UnityEngine.UI;
 
 public enum Equipment{
   None,
-  AntimatterMissile,
+  TrackMissile,
   NeutronLance,
   GatlingGun,
   ChargeBeam,
   PlasmaCannon,
   ElectroMagnecticPulse,
-  GaussCannon
+  GaussCannon,
+  UltraBeam
 }
 
 public class Menu : UI{

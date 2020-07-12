@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 1615376525979860808}
   - component: {fileID: 6175071517654754461}
   m_Layer: 10
-  m_Name: AntimatterMissle
+  m_Name: TrackMissle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,9 +363,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialized: 0
   damage: 0
+  penetration: 0
   isBeam: 0
   onHitEffect: 17
-  penetration: 0
+  outScale: 1.25
   area: {fileID: 2297387433828442558}
 --- !u!114 &1615376525979860808
 MonoBehaviour:

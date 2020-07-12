@@ -83,8 +83,8 @@ public class Beam : Projectile{
   void RenderBeam(){
     float currectWidth = box.size.x;
     beam.widthCurve = AnimationCurve.Linear(0, currectWidth, 1, currectWidth);
-    beam.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 0f));
-    beam.SetPosition(1, new Vector3(transform.position.x, endY, 0f));
+    beam.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 0.25f));
+    beam.SetPosition(1, new Vector3(transform.position.x, endY, 0.25f));
   }
 
   protected override void AreaDamage(){}
