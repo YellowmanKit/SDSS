@@ -14682,7 +14682,8 @@ MonoBehaviour:
   nextUse: 0
   stopOnUse: 0
   shootDelay: 0.1
-  bulletPerShot: 3
+  bulletPerShot: 1
+  shotPerUse: 3
   alertDuration: 0
   alertName: 0
   force: 125
@@ -14690,7 +14691,7 @@ MonoBehaviour:
   projectileType: 5
   isBeam: 0
   isPulse: 0
-  penetration: 3
+  penetration: 9
   recoils:
   - {fileID: 0}
   recoil: 250
@@ -14709,8 +14710,7 @@ MonoBehaviour:
   initialized: 0
   usingShotSpawns: 00000000
   usingRecoils: 00000000
-  skillButton: {fileID: 0}
-  cdIndicator: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!1 &7242360495914239111
 GameObject:
   m_ObjectHideFlags: 0

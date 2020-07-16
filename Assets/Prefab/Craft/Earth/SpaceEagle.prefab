@@ -29142,6 +29142,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
+  above: {fileID: 0}
   regen: 0
 --- !u!136 &9068559585086479195
 CapsuleCollider:
@@ -29262,6 +29263,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
+  above: {fileID: 0}
   regen: 0
 --- !u!114 &8741031156725471956
 MonoBehaviour:
@@ -29314,6 +29316,7 @@ GameObject:
   - component: {fileID: 6515044355500314121}
   - component: {fileID: 6515044355500314122}
   - component: {fileID: 5691235624333498501}
+  - component: {fileID: 6783876416421889801}
   m_Layer: 8
   m_Name: SpaceEagle
   m_TagString: Earth
@@ -29419,6 +29422,7 @@ MonoBehaviour:
   canDie: 1
   shield: {fileID: 0}
   under: {fileID: 3078867785180883744}
+  above: {fileID: 0}
   regen: 0
 --- !u!114 &6515044355500314122
 MonoBehaviour:
@@ -29463,6 +29467,21 @@ MonoBehaviour:
   maxEnergy: 100
   energy: 0
   regen: 0.1
+--- !u!114 &6783876416421889801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148147795433880218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103f63c05a0d1c44ba766d1d03661b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialized: 0
+  onHitEffect: 26
+  threshold: 5
 --- !u!1 &2150897935834606180
 GameObject:
   m_ObjectHideFlags: 0
@@ -34583,7 +34602,7 @@ GameObject:
   - component: {fileID: 2042571680021431326}
   - component: {fileID: 8715379382070057076}
   - component: {fileID: 7993320717180698784}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: ShieldEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35236,7 +35255,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10
     size3D: 0
     rotation3D: 1
     gravityModifier:
@@ -44303,6 +44322,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
+  above: {fileID: 0}
   regen: 0
 --- !u!136 &8765264189796028004
 CapsuleCollider:
@@ -44577,6 +44597,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
+  above: {fileID: 0}
   regen: 0
 --- !u!114 &7651474857938206959
 MonoBehaviour:
@@ -44626,7 +44647,7 @@ GameObject:
   - component: {fileID: 734720448311188547}
   - component: {fileID: 8408900810780636024}
   - component: {fileID: 3078867785180883744}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44694,6 +44715,8 @@ MonoBehaviour:
   threshold: 0.3
   shieldEffect: {fileID: 7993320717180698784}
   isActive: 0
+  repulse: 1000
+  onHitEffect: 25
 --- !u!114 &3078867785180883744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44713,6 +44736,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 8408900810780636024}
   under: {fileID: 0}
+  above: {fileID: 6515044355500314121}
   regen: 0.1
 --- !u!1 &6216752088568035350
 GameObject:

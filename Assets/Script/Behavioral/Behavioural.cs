@@ -10,6 +10,7 @@ public abstract class Behavioural : Script{
   protected Engine engine { get { return GetComponent<Engine>(); } }
   protected Vector2 pp { get { return  center.player.transform.position; } }
   protected CapsuleCollider parentCapsule { get { return GetComponentInParent<CapsuleCollider>(); } }
+  public Hitpoint hitpoint { get { return GetComponent<Hitpoint>(); } }
 
   protected Vector2 BackToArea(Vector2 position){
     return new Vector2(
@@ -24,5 +25,5 @@ public abstract class Behavioural : Script{
       Mathf.Clamp(position.y, -boundary.y, boundary.y)
     );
   }
-  
+
 }

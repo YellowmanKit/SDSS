@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Projectile : Physical{
 
   public float damage, penetration;
-  protected float quota;
+  protected float quota, dieTime;
   protected float weaken { get { return penetration > 0f? quota / penetration: 1f; }}
 
   protected abstract void OnHit(Hitpoint hitpoint);
@@ -39,6 +39,13 @@ public abstract class Projectile : Physical{
   protected float momentum { get { return rb.mass * rb.velocity.magnitude; } }
   void ApplyMomentum(Rigidbody otherRb){
     otherRb.AddForce(transform.forward * momentum, ForceMode.Impulse);
+  }
+
+  public float outScale;
+  protected bool dead;
+  protected void CheckDie(){
+    if(OutY(transform.position.y, boundary.y * (outScale + 1f)) && !dead){ Die(); }
+    if(time > dieTime){ go.SetActive(false); }
   }
 
 

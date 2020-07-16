@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,9 +10,10 @@ public enum Equipment{
   GatlingGun,
   ChargeBeam,
   PlasmaCannon,
-  ElectroMagnecticPulse,
+  MissileBlossom,
   GaussCannon,
-  UltraBeam
+  UltraBeam,
+  ElectroMagnecticPulse
 }
 
 public class Menu : UI{
@@ -25,10 +27,16 @@ public class Menu : UI{
     });
   }
 
+  public List<Option> availableOptions = new List<Option>();
   public void ActivateOptions(bool active, Category category){
+    availableOptions.Clear();
+    int count = 0;
     Loop(options.Length, i => {
       if(category == options[i].category){
         options[i].gameObject.SetActive(active);
+        options[i].keyCode = NumberToKeyCode(count);
+        count++;
+        availableOptions.Add(options[i]);
       }else{
         options[i].gameObject.SetActive(!active);
       }

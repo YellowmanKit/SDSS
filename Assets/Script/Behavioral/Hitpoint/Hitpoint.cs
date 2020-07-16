@@ -11,6 +11,7 @@ public class Hitpoint : Behavioural{
   public bool canDie;
   public Shield shield;
   public Hitpoint under;
+  public Hitpoint above;
   public bool shielded { get { return under && under.shield.isActive; } }
   public Hitpoint effectiveHitpoint { get { return shielded? under: this; } }
   public void TakeDamage(float damage, Vector3 position){

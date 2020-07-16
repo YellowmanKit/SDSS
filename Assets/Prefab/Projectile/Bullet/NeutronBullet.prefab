@@ -81,8 +81,9 @@ MonoBehaviour:
   penetration: 0
   isBeam: 0
   onHitEffect: 6
-  outScale: 1.25
+  outScale: 0.25
   area: {fileID: 0}
+  trailDuration: 0
 --- !u!1 &7153268028776743431
 GameObject:
   m_ObjectHideFlags: 0

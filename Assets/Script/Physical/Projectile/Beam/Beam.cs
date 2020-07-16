@@ -8,9 +8,9 @@ public class Beam : Projectile{
   public float duration, frequency, width;
   Transform parent;
   public void Fire(Transform source){
+    dieTime = time + duration;
     box.size = new Vector3(width, box.size.y, box.size.z);
     parent = source;
-    GetComponent<Expire>().duration = duration;
   }
 
   public List<Hitpoint> hitting = new List<Hitpoint>();
@@ -24,6 +24,7 @@ public class Beam : Projectile{
     DealDamage();
     Shrink();
     RenderBeam();
+    CheckDie();
   }
 
   public float shrinkIn;
@@ -42,17 +43,17 @@ public class Beam : Projectile{
   }
 
   float nextCheck;
+  public float distance;
+  Vector2 end;
   protected override Vector3 HitPosition(Hitpoint hitpoint){
     Vector3 target = hitpoint.transform.position;
-    return new Vector3(
-    transform.position.x,
-    target.y + hitpoint.capsule.height * (transform.position.y >target.y? 1f: -1f) / 2f,
-    0f);
+    distance = (hitpoint.transform.position - transform.position).magnitude;
+    return DistanceToEnd(distance);
   }
 
   float decay { get { return box.size.x / width; } }
-  float endY;
   public Spawnable onHitEffect2;
+  bool blocked;
   void DealDamage(){
     if(time > nextCheck){
       quota = penetration * decay;
@@ -65,26 +66,33 @@ public class Beam : Projectile{
         if(hitpoint.shielded){ continue; }
         if(count == 0 || quota >= hitpoint.penetrationCost){
           quota -= hitpoint.penetrationCost;
-          hitpoint.TakeDamage(damage * weaken * delta / duration, HitPosition(hitpoint));
-          SpawnOnHitEffect(HitPosition(hitpoint), false);
-          blockedPosition = HitPosition(hitpoint);
-          endY = blockedPosition.y;
+          Vector3 hitPosition = HitPosition(hitpoint);
+          hitpoint.TakeDamage(damage * weaken * delta / duration, hitPosition);
+          SpawnOnHitEffect(hitPosition, false);
+          blockedPosition = hitPosition;
           count++;
-        }else{
+        }
+        if(quota < hitpoint.penetrationCost){
           center.pool.Spawn(onHitEffect2, blockedPosition, transform.rotation);
+          blocked = true;
           return;
         }
       }
-      endY = (transform.position + transform.TransformPoint(Vector3.forward * 100f)).y;
+      blocked = false;
     }
   }
 
   LineRenderer beam { get { return GetComponentInChildren<LineRenderer>(); } }
   void RenderBeam(){
+    end = DistanceToEnd(blocked? distance: 100f);
     float currectWidth = box.size.x;
     beam.widthCurve = AnimationCurve.Linear(0, currectWidth, 1, currectWidth);
     beam.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 0.25f));
-    beam.SetPosition(1, new Vector3(transform.position.x, endY, 0.25f));
+    beam.SetPosition(1, new Vector3(end.x, end.y, 0.25f));
+  }
+
+  Vector2 DistanceToEnd(float distance){
+    return transform.position + transform.TransformDirection(Vector3.forward * distance);
   }
 
   protected override void AreaDamage(){}

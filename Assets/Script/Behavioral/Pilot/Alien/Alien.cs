@@ -15,12 +15,14 @@ public class Alien : Pilot{
   }
 
   Transform target;
+  Vector2 avoid;
   float engageY;
   void Update(){
     if(!target || !target.gameObject.activeSelf){ target = center.earthTarget; }
     if(target && time > unstopTime){
       destination.x = target.position.x;
       destination.y = engageY;
+      destination -= avoid;
     }
     if(time > activeTime){ skill.SetActive(true); }
   }
@@ -33,6 +35,11 @@ public class Alien : Pilot{
 
   protected Vector2 RandomPosition(){
     return new Vector2(Random.Range(-boundary.x, boundary.x), Random.Range(0f, boundary.y));
+  }
+
+  public void HandleCollision(Collision collision){
+    Vector3 delta = collision.collider.transform.position - transform.position;
+    avoid = V2(delta);
   }
 
 }

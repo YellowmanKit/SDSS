@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9172107835747935873}
   - component: {fileID: 4101279445908487625}
   m_Layer: 8
-  m_Name: AntimatterMissile
+  m_Name: TrackMissile
   m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,14 +62,17 @@ MonoBehaviour:
   stopOnUse: 0
   shootDelay: 0
   bulletPerShot: 1
+  shotPerUse: 1
   alertDuration: 0
   alertName: 0
   force: 400
   damage: 50
   projectileType: 16
   isBeam: 0
+  isPulse: 0
   penetration: 0
   recoils: []
+  recoil: 0
 --- !u!114 &4101279445908487625
 MonoBehaviour:
   m_ObjectHideFlags: 0

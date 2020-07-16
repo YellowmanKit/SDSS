@@ -8,6 +8,7 @@ public class Slot : UI{
   public Image icon, cd;
   public Button change;
   public Button skillButton { get { return GetComponent<Button>(); } }
+  public KeyCode keyCode;
 
   public void OnChange(){
     ability.SetSlots(false);
@@ -24,8 +25,10 @@ public class Slot : UI{
 
   public GameObject skill;
   public void Dismiss(){
+    if(!skill){ return; }
     option = null;
     icon.sprite = panel.empty;
+    center.keyboard.equips.Remove(skill.GetComponent<Equip>());
     GameObject.Destroy(skill);
   }
 

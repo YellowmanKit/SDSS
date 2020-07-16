@@ -7,12 +7,15 @@ public class Bullet : Projectile{
   protected override Vector3 HitPosition(Hitpoint hitpoint){ return transform.position; }
 
   public void Fire(float force){
+    dieTime = float.MaxValue;
+    Set(true);
     quota = penetration;
     rb.AddForce(transform.forward * force, ForceMode.Impulse);
   }
 
-  public float outScale;
-  void Update(){ if(OutY(transform.position.y, boundary.y * outScale)){ Die(); } }
+  void Update(){
+    CheckDie();
+  }
 
   protected override void OnHit(Hitpoint hitpoint){
     hitpoint.TakeDamage(damage * weaken, transform.position);
@@ -28,9 +31,17 @@ public class Bullet : Projectile{
     Die();
   }
 
+  public float trailDuration;
   protected override void Die(){
+    Set(false);
     rb.velocity = Vector3.zero;
-    go.SetActive(false);
+    dieTime = time + trailDuration;
+  }
+
+  void Set(bool active){
+    dead = !active;
+    sprite.enabled = active;
+    capsule.enabled = active;
   }
 
   public void HittedByPulse(Vector3 sourcePosition){

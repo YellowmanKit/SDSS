@@ -4,8 +4,6 @@ using UnityEngine;
 public class Shield : Behavioural{
 
   public float threshold;
-  public Hitpoint hitpoint { get { return GetComponent<Hitpoint>(); } }
-
   void OnEnable(){
     Activate(true);
   }
@@ -34,6 +32,23 @@ public class Shield : Behavioural{
   public void Activate(bool activate){
     parentCapsule.enabled = activate;
     isActive = activate;
+  }
+
+  public float repulse;
+  void OnTriggerStay(Collider other){
+    Hitted(true, other.transform.position);
+    Hitpoint hitpoint = other.GetComponent<Hitpoint>();
+    if(hitpoint && hitpoint.above){
+      Vector3 delta =  other.transform.position - transform.position;
+      hitpoint.above.GetComponent<Rigidbody>().AddForce(
+      delta.normalized * repulse / delta.magnitude, ForceMode.Impulse);
+      SpawnOnHitEffect(transform.position + (delta / 2f));
+    }
+  }
+
+  public Spawnable onHitEffect;
+  void SpawnOnHitEffect(Vector3 position){
+    center.pool.Spawn(onHitEffect, position, transform.rotation);
   }
 
 }

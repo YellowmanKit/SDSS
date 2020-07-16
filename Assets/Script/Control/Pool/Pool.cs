@@ -27,7 +27,9 @@ public enum Spawnable {
   GaussBulletOnHit,
   UltraBeam,
   UltraBeamOnHit,
-  UltraBeamOnHit2
+  UltraBeamOnHit2,
+  ShieldOnHit,
+  BodyOnHit
 }
 
 public class Pool : Control{

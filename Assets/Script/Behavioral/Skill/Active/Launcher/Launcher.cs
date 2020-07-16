@@ -8,15 +8,17 @@ public class Launcher : Active{
     (autoUse && center.HasEnemyInLine(transform.position, go.tag, true)) && !center.stage.gameOvered); } }
 
   public float shootDelay;
-  public int bulletPerShot;
+  public int bulletPerShot, shotPerUse;
   int shotCount;
   protected override void Use(){
     Alert();
     if(onUseEffects.Length > shotCount)
     onUseEffects[shotCount].Play();
     if(glows.Length > 0){ glows[shotCount].GlowForSecond(useDelay); }
-    Loop(bulletPerShot, i=>{
-      shootList.Add(time + useDelay + shootDelay * i);
+    Loop(shotPerUse, i => {
+      Loop(bulletPerShot, ()=>{
+        shootList.Add(time + useDelay + shootDelay * i);
+      });
     });
   }
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3408432983994836655}
   - component: {fileID: 8495417400742760867}
   - component: {fileID: 1091293121381202099}
-  - component: {fileID: 5241626329170678155}
   m_Layer: 0
   m_Name: UltraBeam
   m_TagString: Untagged
@@ -81,26 +80,14 @@ MonoBehaviour:
   penetration: 0
   isBeam: 1
   onHitEffect: 23
+  outScale: 0
   duration: 3
   frequency: 10
-  width: 3
+  width: 4
   hitting: []
   shrinkIn: 3
+  distance: 0
   onHitEffect2: 24
---- !u!114 &5241626329170678155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1067502738989991465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178408c9db670d947a225cdcf56483b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialized: 0
-  duration: 0
 --- !u!1 &5144471762357799635
 GameObject:
   m_ObjectHideFlags: 0

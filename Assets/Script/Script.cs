@@ -29,4 +29,21 @@ public abstract class Script : MonoBehaviour{
   protected void Loop(int count, Action<int> action){ for(int i=0;i<count;i++){ action(i); } }
   protected void Loop(int count, Action action){ for(int i=0;i<count;i++){ action(); } }
 
+  protected KeyCode NumberToKeyCode(int number){
+    switch(number){
+      case 0:
+        return KeyCode.Alpha1;
+      case 1:
+        return KeyCode.Alpha2;
+      case 2:
+        return KeyCode.Alpha3;
+      case 3:
+        return KeyCode.Alpha4;
+      case 4:
+        return KeyCode.Alpha5;
+      default:
+        return KeyCode.Alpha1;
+    }
+  }
+
 }

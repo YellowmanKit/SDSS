@@ -14468,6 +14468,7 @@ GameObject:
   - component: {fileID: 1414307390}
   - component: {fileID: 1414307391}
   - component: {fileID: 352914472576508678}
+  - component: {fileID: 1983757356682186862}
   m_Layer: 9
   m_Name: AlienWarthog
   m_TagString: Alien
@@ -14577,6 +14578,7 @@ MonoBehaviour:
   canDie: 1
   shield: {fileID: 0}
   under: {fileID: 863459772106408162}
+  above: {fileID: 0}
   regen: 0
 --- !u!114 &1414307391
 MonoBehaviour:
@@ -14618,6 +14620,21 @@ MonoBehaviour:
   maxEnergy: 100
   energy: 0
   regen: 0.1
+--- !u!114 &1983757356682186862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315262329974400953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 103f63c05a0d1c44ba766d1d03661b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialized: 0
+  onHitEffect: 26
+  threshold: 10
 --- !u!1 &1454782849755300086
 GameObject:
   m_ObjectHideFlags: 0
@@ -14702,6 +14719,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
+  above: {fileID: 0}
   regen: 0
 --- !u!114 &8786237312711866181
 MonoBehaviour:
@@ -14807,6 +14825,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
+  above: {fileID: 0}
   regen: 0
 --- !u!114 &6968585232526978515
 MonoBehaviour:
@@ -29841,7 +29860,7 @@ GameObject:
   - component: {fileID: 2416874299198275739}
   - component: {fileID: 8351557916573143318}
   - component: {fileID: 2111698533200277651}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: ShieldEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30494,7 +30513,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10
     size3D: 0
     rotation3D: 1
     gravityModifier:
@@ -34705,7 +34724,8 @@ MonoBehaviour:
   nextUse: 0
   stopOnUse: 1
   shootDelay: 0.1
-  bulletPerShot: 3
+  bulletPerShot: 1
+  shotPerUse: 3
   alertDuration: 1
   alertName: 7
   force: 125
@@ -34801,6 +34821,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 0}
   under: {fileID: 0}
+  above: {fileID: 0}
   regen: 0
 --- !u!114 &196032548066293719
 MonoBehaviour:
@@ -34978,7 +34999,7 @@ GameObject:
   - component: {fileID: 7095950159292299031}
   - component: {fileID: 4153514724370087856}
   - component: {fileID: 863459772106408162}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35046,6 +35067,8 @@ MonoBehaviour:
   threshold: 0.3
   shieldEffect: {fileID: 2111698533200277651}
   isActive: 0
+  repulse: 1000
+  onHitEffect: 25
 --- !u!114 &863459772106408162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35065,6 +35088,7 @@ MonoBehaviour:
   canDie: 0
   shield: {fileID: 4153514724370087856}
   under: {fileID: 0}
+  above: {fileID: 1414307390}
   regen: 0.1
 --- !u!1 &7420037563073340927
 GameObject:

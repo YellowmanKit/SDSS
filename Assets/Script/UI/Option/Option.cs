@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Option : UI{
 
+  public KeyCode keyCode;
   public Category category;
   public Image icon;
   public bool equiped;
@@ -28,8 +29,7 @@ public class Option : UI{
   void EquipSkill(){
     ability.slot.skill = Instantiate(menu.equipments[(int)equipment - 1], center.player.soul.skill);
     Equip equip = ability.slot.skill.GetComponent<Equip>();
-    equip.cdIndicator = ability.slot.cd;
-    equip.skillButton = ability.slot.skillButton;
+    equip.slot = ability.slot;
     equip.Set();
     equiped = true;
     center.panel.next.Activate(true);

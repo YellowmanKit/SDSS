@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 7782303000745595993}
   - component: {fileID: 3938589158081602389}
   - component: {fileID: -3717605310918456763}
-  - component: {fileID: 860358525532300157}
   m_Layer: 0
   m_Name: ChargeBeam
   m_TagString: Untagged
@@ -209,23 +208,11 @@ MonoBehaviour:
   penetration: 0
   isBeam: 1
   onHitEffect: 13
+  outScale: 0
   duration: 1
   frequency: 10
   width: 1
   hitting: []
   shrinkIn: 1
+  distance: 0
   onHitEffect2: 19
---- !u!114 &860358525532300157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5592886830284944607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178408c9db670d947a225cdcf56483b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialized: 0
-  duration: 0

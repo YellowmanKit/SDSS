@@ -976,7 +976,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 3
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1094,21 +1094,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0.74324477
           inSlope: 0
           outSlope: 0
-          tangentMode: 34
+          tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 34
+          inSlope: 0.7400077
+          outSlope: 0.7400077
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.21913588
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4881,6 +4881,7 @@ MonoBehaviour:
   stopOnUse: 0
   shootDelay: 0
   bulletPerShot: 1
+  shotPerUse: 1
   alertDuration: 0
   alertName: 0
   force: 125
@@ -4908,8 +4909,7 @@ MonoBehaviour:
   initialized: 0
   usingShotSpawns: 0100000002000000
   usingRecoils: 0200000001000000
-  skillButton: {fileID: 0}
-  cdIndicator: {fileID: 0}
+  slot: {fileID: 0}
 --- !u!1 &6416892108914099206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6108,7 +6108,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 1
+        scalar: 3
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -6226,21 +6226,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0.74324477
           inSlope: 0
           outSlope: 0
-          tangentMode: 34
+          tangentMode: 0
           weightedMode: 0
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 34
+          inSlope: 0.7400077
+          outSlope: 0.7400077
+          tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.21913588
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2

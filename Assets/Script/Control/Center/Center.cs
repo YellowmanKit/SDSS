@@ -13,6 +13,7 @@ public class Center : Control{
   public Pool pool;
   public Stage stage;
   public Panel panel;
+  public Keyboard keyboard;
   public float orbMeter, orbCount;
 
   public Transform earthTarget{ get { return earths.Count > 0? earths[Random.Range(0, earths.Count)].transform: null; } }

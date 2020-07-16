@@ -176,6 +176,7 @@ MonoBehaviour:
   stopOnUse: 0
   shootDelay: 0
   bulletPerShot: 1
+  shotPerUse: 1
   alertDuration: 0
   alertName: 0
   force: 600

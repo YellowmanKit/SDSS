@@ -6,10 +6,7 @@ public abstract class Pilot : Behavioural{
   public Body body { get { return GetComponentInChildren<Body>(); } }
   public Soul soul { get { return GetComponentInChildren<Soul>(); } }
   public Energy energy { get { return GetComponent<Energy>(); } }
-
-  protected Hitpoint hitpoint { get { return GetComponent<Hitpoint>(); } }
   protected Shield shield { get { return GetComponentInChildren<Shield>(); } }
-
   protected Death death { get { return GetComponent<Death>(); } }
 
   public Vector2 destination;
