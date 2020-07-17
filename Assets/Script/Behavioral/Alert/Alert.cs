@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Alert : Behavioural{
 
-  protected ParticleSystem alertEffect { get { return GetComponent<ParticleSystem>(); } }
+  protected ParticleSystem ps { get { return GetComponent<ParticleSystem>(); } }
   protected bool playing;
 
 }

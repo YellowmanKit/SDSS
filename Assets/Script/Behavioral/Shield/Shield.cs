@@ -35,14 +35,18 @@ public class Shield : Behavioural{
   }
 
   public float repulse;
+  float frequency = 10f;
+  float nextEffect;
   void OnTriggerStay(Collider other){
+    if(time < nextEffect){ return; }
+    nextEffect = time + 1f / frequency;
     Hitted(true, other.transform.position);
     Hitpoint hitpoint = other.GetComponent<Hitpoint>();
     if(hitpoint && hitpoint.above){
       Vector3 delta =  other.transform.position - transform.position;
       hitpoint.above.GetComponent<Rigidbody>().AddForce(
       delta.normalized * repulse / delta.magnitude, ForceMode.Impulse);
-      SpawnOnHitEffect(transform.position + (delta / 2f));
+      SpawnOnHitEffect(transform.position + (delta.normalized * capsule.radius));
     }
   }
 

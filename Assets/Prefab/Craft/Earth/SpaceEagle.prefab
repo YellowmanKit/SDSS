@@ -29481,7 +29481,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialized: 0
   onHitEffect: 26
-  threshold: 5
 --- !u!1 &2150897935834606180
 GameObject:
   m_ObjectHideFlags: 0
@@ -44715,7 +44714,7 @@ MonoBehaviour:
   threshold: 0.3
   shieldEffect: {fileID: 7993320717180698784}
   isActive: 0
-  repulse: 1000
+  repulse: 3000
   onHitEffect: 25
 --- !u!114 &3078867785180883744
 MonoBehaviour:
