@@ -29,7 +29,8 @@ public enum Spawnable {
   UltraBeamOnHit,
   UltraBeamOnHit2,
   ShieldOnHit,
-  BodyOnHit
+  BodyOnHit,
+  PlasmaNova
 }
 
 public class Pool : Control{

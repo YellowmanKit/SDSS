@@ -13,6 +13,7 @@ public enum Equipment{
   MissileBlossom,
   GaussCannon,
   UltraBeam,
+  PlasmaNova,
   ElectroMagnecticPulse
 }
 
