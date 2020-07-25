@@ -14,12 +14,22 @@ public class Hitpoint : Behavioural{
   public Hitpoint above;
   public bool shielded { get { return under && under.shield.isActive; } }
   public Hitpoint effectiveHitpoint { get { return shielded? under: this; } }
-  public void TakeDamage(float damage, Vector3 position){
+  public void TakeDamage(float damage, Vector3 position, bool direct){
     if(hp < 0f){ return; }
     if(shielded){ return; }
     hp -= damage;
-    if(shield){ shield.Hitted(hp > 0f, position); }
+    if(shield){
+      shield.Hitted(hp > 0f, position, (int)Mathf.Ceil(damage / 100f));
+      if(direct && hp < 0f){
+        above.TakeDamage(-hp, position);
+        hp = 0f;
+      }
+    }
     if(hp <= 0f && canDie){ GetComponent<Death>().Die(); }
+  }
+
+  public void TakeDamage(float damage, Vector3 position){
+    TakeDamage(damage, position, false);
   }
 
   public void GainHp(float value){

@@ -4882,7 +4882,7 @@ MonoBehaviour:
   alertDuration: 0
   alertName: 0
   force: 75
-  damage: 1000
+  damage: 500
   projectileType: 27
   isBeam: 0
   isPulse: 0

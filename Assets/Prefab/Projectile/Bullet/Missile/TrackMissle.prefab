@@ -183,7 +183,7 @@ MonoBehaviour:
   initialized: 0
   radius: 10
   effectiveness: 0.5
-  force: 450
+  force: 200
   decayRate: 0.5
 --- !u!1 &5626521686166849602
 GameObject:
@@ -368,6 +368,7 @@ MonoBehaviour:
   onHitEffect: 17
   outScale: 1.25
   area: {fileID: 2297387433828442558}
+  trailDuration: 0
 --- !u!114 &1615376525979860808
 MonoBehaviour:
   m_ObjectHideFlags: 0

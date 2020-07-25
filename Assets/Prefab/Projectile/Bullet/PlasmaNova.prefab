@@ -4798,9 +4798,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialized: 0
-  radius: 10
+  radius: 20
   effectiveness: 0.5
-  force: 300
+  force: 800
   decayRate: 0.5
 --- !u!1 &6349094217123056677
 GameObject:
@@ -4965,7 +4965,7 @@ MonoBehaviour:
   damage: 0
   penetration: 0
   isBeam: 0
-  onHitEffect: 15
+  onHitEffect: 28
   outScale: 0.25
   area: {fileID: 4928255955423149769}
   trailDuration: 0.2

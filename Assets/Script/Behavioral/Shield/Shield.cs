@@ -9,7 +9,7 @@ public class Shield : Behavioural{
   }
 
   public ParticleSystem shieldEffect;
-  public void Hitted(bool enable, Vector3 position){
+  public void Hitted(bool enable, Vector3 position, int count){
     ParticleSystem.MainModule main = shieldEffect.main;
     float deltaX = position.x - transform.position.x;
     float deltaY = position.y - transform.position.y;
@@ -24,8 +24,12 @@ public class Shield : Behavioural{
       rotationX = Mathf.Atan(Mathf.Abs(deltaY) / Mathf.Abs(deltaX)) * Mathf.Rad2Deg;
     }
     main.startRotationX = rotationX * Mathf.Deg2Rad;
-    shieldEffect.Play();
+    Loop(count, ()=>{ shieldEffect.Play(); });
     Activate(enable);
+  }
+
+  public void Hitted(bool enable, Vector3 position){
+    Hitted(enable, position, 1);
   }
 
   public bool isActive;
