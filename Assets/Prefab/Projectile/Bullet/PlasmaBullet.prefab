@@ -46,7 +46,7 @@ MonoBehaviour:
   initialized: 0
   radius: 10
   effectiveness: 0.5
-  force: 200
+  force: 100
   decayRate: 0.5
 --- !u!1 &4589702185515656387
 GameObject:
